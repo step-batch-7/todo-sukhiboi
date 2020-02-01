@@ -47,7 +47,7 @@ describe('#POST /addTodo()', () => {
   it('should response back with OK', done => {
     request(app)
       .post('/addTodo')
-      .send('title=My+first+todo')
+      .send('id=890&title=My+first+todo')
       .expect(200)
       .expect(/OK/, done);
   });

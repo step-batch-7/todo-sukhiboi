@@ -1,0 +1,55 @@
+create a server which will serve static pages
+make todoList class
+make todo class
+FOR NOW store to do in MEMORY.
+set a /add POST route to add todo
+set a /done POST route to set a todo as done
+set a /delete route to delte a todo
+
+-------v1 : creating one todo list which stores todo in memory
+
+MODEL:
+
+TodoList {
+    title: "Name of the list" //String,
+    todos : [
+        Todo {
+            id: 6535 //Number,
+            date: 2019-12-09 //Date in JSON format,
+            isCompleted: false, //Boolean
+            title: "Title of todo" //String
+        }
+    ]
+}
+
+Responsibilies - 
+    > TodoList
+        1. Can delete a todo // deleteTodo(todoId)
+        2. Can add a todo addTodo(todo)
+        3. Can give a HTML representation of itself // toHTML()
+        4, Can give a JSON representation of itself // toJSON()
+    
+    > Todo
+        1. Can toogle its state // toogle(todoId)
+        2. Can give a HTML representation of it // toHTMl()
+        3. Can give a JSON representation of it //toJSON
+
+Template Folder Content
+    - index.HTML
+    > styles
+        - styles.css
+    > js
+        - todo.js
+
+Lib folder Content
+    - handlers.js
+    - middlewares.js
+    - app.js
+    - router.js
+    - todoList.js
+    - todo.js
+
+Test folder Content
+    - testHandlers.js
+    - testTodoList.js
+    - testTodo.js

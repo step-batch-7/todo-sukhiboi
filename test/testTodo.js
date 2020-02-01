@@ -3,14 +3,16 @@ const { Todo } = require('./../lib/todo.js');
 
 describe('Todo()', () => {
   let date;
+  let ID;
 
   beforeEach(function() {
     date = new Date();
+    ID = Todo.generateTodoId();
   });
 
   describe('#toHTML()', () => {
     it('should return todo in HTML format', () => {
-      const todo = new Todo('firstTodo', date);
+      const todo = new Todo(ID, 'firstTodo', date);
       const todoId = todo.id;
       assert.deepStrictEqual(
         todo.toHTML(),
@@ -21,7 +23,7 @@ describe('Todo()', () => {
 
   describe('#toJSON()', () => {
     it('should return todo in JSON format', () => {
-      const todo = new Todo('firstTodo', date);
+      const todo = new Todo(ID, 'firstTodo', date);
       const todoId = todo.id;
       assert.deepStrictEqual(
         todo.toJSON(),
@@ -32,7 +34,7 @@ describe('Todo()', () => {
 
   describe('#toogle()', () => {
     it('should toggle the state of todo', () => {
-      const todo = new Todo('firstTodo', date);
+      const todo = new Todo(ID, 'firstTodo', date);
       todo.toggle();
       assert.ok(todo.isCompleted);
     });

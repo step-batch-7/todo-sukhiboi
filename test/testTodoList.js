@@ -5,15 +5,17 @@ const { TodoList } = require('./../lib/todoList');
 describe('TodoList()', () => {
   let todoList;
   let date;
+  let ID;
 
   beforeEach(function() {
     todoList = new TodoList('mylist');
     date = new Date();
+    ID = Todo.generateTodoId();
   });
 
   describe('#toHTML()', () => {
     it('should return all todo in HTML format', () => {
-      const todo = new Todo('firstTodo', date);
+      const todo = new Todo(ID, 'firstTodo', date);
       const todoId = todo.id;
       todoList.addTodo(todo);
       assert.deepStrictEqual(
@@ -25,7 +27,7 @@ describe('TodoList()', () => {
 
   describe('#toJSON()', () => {
     it('should return all todo in JSON format', () => {
-      const todo = new Todo('firstTodo', date);
+      const todo = new Todo(ID, 'firstTodo', date);
       const todoId = todo.id;
       todoList.addTodo(todo);
       assert.deepStrictEqual(
@@ -37,7 +39,7 @@ describe('TodoList()', () => {
 
   describe('#addTodo()', () => {
     it('should add a todo in the list', () => {
-      const todo = new Todo('firstTodo', date);
+      const todo = new Todo(ID, 'firstTodo', date);
       const todoId = todo.id;
       todoList.addTodo(todo);
       assert.deepStrictEqual(
@@ -49,7 +51,7 @@ describe('TodoList()', () => {
 
   describe('#findTodo()', () => {
     it('should find todo in the list with the given id', () => {
-      const todo = new Todo('firstTodo', date);
+      const todo = new Todo(ID, 'firstTodo', date);
       const todoId = todo.id;
       todoList.addTodo(todo);
       const foundedTodo = todoList.findTodo(todoId);
@@ -59,7 +61,7 @@ describe('TodoList()', () => {
 
   describe('#deleteTodo()', () => {
     it('should delete todo in the list with the given id', () => {
-      const todo = new Todo('firstTodo', date);
+      const todo = new Todo(ID, 'firstTodo', date);
       const todoId = todo.id;
       todoList.addTodo(todo);
       todoList.deleteTodo(todoId);

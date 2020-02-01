@@ -52,3 +52,13 @@ describe('#POST /addTodo()', () => {
       .expect(/OK/, done);
   });
 });
+
+describe('#POST /toggleTodo()', () => {
+  it('should response back with TOGGLED', done => {
+    request(app)
+      .post('/toggleTodo')
+      .send('id=890')
+      .expect(200)
+      .expect(/TOGGLED/, done);
+  });
+});

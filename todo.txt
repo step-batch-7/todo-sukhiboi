@@ -1,4 +1,4 @@
-create a server which will serve static pages
+create a server which will serve static pages --DONE
 make todoList class
 make todo class
 FOR NOW store to do in MEMORY.

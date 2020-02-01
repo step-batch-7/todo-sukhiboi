@@ -27,12 +27,15 @@ Responsibilies -
         1. Can delete a todo // deleteTodo(todoId)
         2. Can add a todo addTodo(todo)
         3. Can give a HTML representation of itself // toHTML()
-        4, Can give a JSON representation of itself // toJSON()
+        4. Can give a JSON representation of itself // toJSON()
+        5. Can find a todo with id //findTodo(todoId)
     
     > Todo
         1. Can toogle its state // toogle(todoId)
         2. Can give a HTML representation of it // toHTMl()
         3. Can give a JSON representation of it //toJSON
+        4. Can generate a id for todo
+        5. Can return it's id
 
 Template Folder Content
     - index.HTML

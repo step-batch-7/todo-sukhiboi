@@ -1,0 +1,4 @@
+.DS_Store
+node_modules
+DATASTORE.json
+.nyc_output

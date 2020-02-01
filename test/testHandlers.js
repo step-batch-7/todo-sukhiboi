@@ -62,3 +62,13 @@ describe('#POST /toggleTodo()', () => {
       .expect(/TOGGLED/, done);
   });
 });
+
+describe('#POST /deleteTodo()', () => {
+  it('should response back with DELETED', done => {
+    request(app)
+      .post('/deleteTodo')
+      .send('id=890')
+      .expect(200)
+      .expect(/DELETED/, done);
+  });
+});

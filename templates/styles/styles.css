@@ -26,7 +26,7 @@ body {
 .todoList {
   background-color: #fff;
   height: 60vh;
-  width: 30vw;
+  width: 22vw;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
@@ -120,20 +120,23 @@ body {
 
 .filter {
   height: 60vh;
-  width: 30vw;
+  width: 22vw;
   border-radius: 10px;
   background-color: rgba(0, 0, 0, 0.4);
   position: absolute;
   bottom: 0%;
 }
 
-.newTodo > div {
-  height: 20%;
+.newTodo {
   width: 80%;
   border-radius: 4px;
   background: #fff;
   padding: 8px;
   text-align: center;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .textbox {
@@ -149,6 +152,7 @@ body {
 
 .addTodoBtn {
   border: none;
+  width: 50%;
   border-radius: 4px;
   padding: 5px 15px;
   font-size: 16px;
@@ -157,9 +161,21 @@ body {
   outline: none;
   box-shadow: none;
   margin-top: 2px;
+  margin: 0 auto;
 }
 
 .addtodobtn:hover {
   cursor: pointer;
   background-color: red;
+}
+
+.closeBtn {
+  font-size: 10px;
+  text-align: right;
+  color: #5b5fe9;
+  font-weight: 900;
+}
+
+.closeBtn:hover {
+  cursor: pointer;
 }

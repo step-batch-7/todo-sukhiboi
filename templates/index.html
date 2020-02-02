@@ -35,11 +35,18 @@
         <div class="todo"><span class="content">Do this assignment</span></div>
         <div class="todo"><span class="content">Do this assignment</span></div>
       </div>
-      <div class="addTodo"><div class="sign center">+</div></div>
-      <div class="newTodo filter hidden" id="addNewTodo">
-        <div class="center">
-          <input class="textbox" />
-          <button class="addTodoBtn">Add</button>
+      <div class="addTodo" onclick="showAddNewTodoBox()">
+        <div class="sign center">+</div>
+      </div>
+      <div class="filter hidden" id="addNewTodoBox">
+        <div class="center newTodo">
+          <div class="closeBtn" id="closebtn" onclick="hideAddNewTodoBox()">
+            <span>X</span>
+          </div>
+          <input class="textbox" id="newTodoInput" />
+          <div class="addTodoBtn" id="addNewTodoBtn" onclick="addTodo()">
+            Add
+          </div>
         </div>
       </div>
     </div>

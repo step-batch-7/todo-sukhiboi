@@ -107,6 +107,11 @@ body {
   position: relative;
 }
 
+.box {
+  height: 0.8rem;
+  width: 0.8rem;
+}
+
 .check {
   height: 0.5rem;
   width: 0.5rem;

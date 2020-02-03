@@ -16,7 +16,7 @@ describe('Todo()', () => {
       const todoId = todo.id;
       assert.deepStrictEqual(
         todo.toHTML(),
-        `<div class='todo flex ' id="${ID}"><div class="checkBox" onclick="toggleTodo()"><div class="check center hidden"></div></div><span class='content'>firstTodo</span><div class="bin" onclick="deleteTodo()"><img src="./images/bin.png" /></div></div>`
+        `<div class='todo flex ' id="${ID}"><div class="checkBox"><div class="box" onclick="toggleTodo()"></div><div class="check center hidden" onclick="toggleTodo()"></div></div><span class='content'>firstTodo</span><div class="bin" onclick="deleteTodo()"><img src="./images/bin.png" /></div></div>`
       );
     });
 
@@ -26,7 +26,7 @@ describe('Todo()', () => {
       todo.toggle();
       assert.deepStrictEqual(
         todo.toHTML(),
-        `<div class='todo flex completed' id="${ID}"><div class="checkBox" onclick="toggleTodo()"><div class="check center "></div></div><span class='content'>firstTodo</span><div class="bin" onclick="deleteTodo()"><img src="./images/bin.png" /></div></div>`
+        `<div class='todo flex completed' id="${ID}"><div class="checkBox"><div class="box" onclick="toggleTodo()"></div><div class="check center " onclick="toggleTodo()"></div></div><span class='content'>firstTodo</span><div class="bin" onclick="deleteTodo()"><img src="./images/bin.png" /></div></div>`
       );
     });
   });

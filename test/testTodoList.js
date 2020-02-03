@@ -20,7 +20,7 @@ describe('TodoList()', () => {
       todoList.addTodo(todo);
       assert.deepStrictEqual(
         todoList.toHTML(),
-        `<div class='todo flex ' id="${ID}"><div class="checkBox" onclick="toggleTodo()"><div class="check center hidden"></div></div><span class='content'>firstTodo</span><div class="bin" onclick="deleteTodo()"><img src="./images/bin.png" /></div></div>`
+        `<div class='todo flex ' id="${ID}"><div class="checkBox"><div class="box" onclick="toggleTodo()"></div><div class="check center hidden" onclick="toggleTodo()"></div></div><span class='content'>firstTodo</span><div class="bin" onclick="deleteTodo()"><img src="./images/bin.png" /></div></div>`
       );
     });
   });
@@ -44,7 +44,7 @@ describe('TodoList()', () => {
       todoList.addTodo(todo);
       assert.deepStrictEqual(
         todoList.toHTML(),
-        `<div class='todo flex ' id="${ID}"><div class="checkBox" onclick="toggleTodo()"><div class="check center hidden"></div></div><span class='content'>firstTodo</span><div class="bin" onclick="deleteTodo()"><img src="./images/bin.png" /></div></div>`
+        `<div class='todo flex ' id="${ID}"><div class="checkBox"><div class="box" onclick="toggleTodo()"></div><div class="check center hidden" onclick="toggleTodo()"></div></div><span class='content'>firstTodo</span><div class="bin" onclick="deleteTodo()"><img src="./images/bin.png" /></div></div>`
       );
     });
   });

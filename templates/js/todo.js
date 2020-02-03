@@ -60,7 +60,7 @@ const deleteTodo = function() {
 };
 
 const toggleTodo = function() {
-  const todoId = event.target.parentElement.id;
+  const todoId = event.target.parentElement.parentElement.id;
   req('PUT', '/toggleTodo', `id=${todoId}`, res => {});
   fetchTodos();
   newTodoInput.value = '';

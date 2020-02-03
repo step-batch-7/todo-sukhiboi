@@ -119,8 +119,8 @@ body {
 }
 
 .filter {
-  height: 60vh;
-  width: 22vw;
+  height: 35rem;
+  width: 20rem;
   border-radius: 10px;
   background-color: rgba(0, 0, 0, 0.4);
   position: absolute;

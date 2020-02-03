@@ -70,7 +70,7 @@ describe('POST /deleteTodo()', () => {
   });
 });
 
-describe('GET .todos()', () => {
+describe('GET /todos()', () => {
   it('should response back with all the todos', done => {
     request(app)
       .get('/todos')

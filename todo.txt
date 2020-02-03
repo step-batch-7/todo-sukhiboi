@@ -57,7 +57,7 @@ Test folder Content
     - testTodoList.js
     - testTodo.js
 
-
+- change put method to patch in router and app
 - Create TodoApp class
 Responsibilies - 
     > TodoApp - contains an array of TodoLists

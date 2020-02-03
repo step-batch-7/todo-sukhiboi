@@ -21,6 +21,10 @@ const fetchTodos = function() {
   const todos = document.getElementById('todos');
   req('GET', '/todos', null, res => {
     todos.innerHTML = res;
+    const todoCount = document.getElementsByClassName('todo').length;
+    document.getElementsByClassName(
+      'todo-count'
+    )[0].innerText = `${todoCount} Tasks`;
   });
 };
 

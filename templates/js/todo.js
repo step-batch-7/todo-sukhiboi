@@ -2,6 +2,7 @@ const addNewTodoBox = document.getElementById('addNewTodoBox');
 const newTodoInput = document.getElementById('newTodoInput');
 const addNewTodoBtn = document.getElementById('addNewTodoBtn');
 const closebtn = document.getElementById('closebtn');
+const bin = document.getElementById('deleteBtn');
 
 const generateTodoId = function() {
   return Math.floor(Math.random() * 100000 + 1);
@@ -38,9 +39,17 @@ const addTodo = function() {
   req(
     'POST',
     '/addTodo',
-    `id=${generateTodoId}&&title=${todoContent}`,
+    `id=${generateTodoId()}&&title=${todoContent}`,
     res => {}
   );
+  fetchTodos();
+  newTodoInput.value = '';
+  hideAddNewTodoBox();
+};
+
+const deleteTodo = function() {
+  const todoId = event.target.parentElement.parentElement.id;
+  req('DELETE', '/deleteTodo', `id=${todoId}`, res => {});
   fetchTodos();
   newTodoInput.value = '';
   hideAddNewTodoBox();

@@ -20,7 +20,7 @@ describe('TodoList()', () => {
       todoList.addTodo(todo);
       assert.deepStrictEqual(
         todoList.toHTML(),
-        `<div class='todo flex'><span class='content'>firstTodo</span><div class="bin"><img src="./images/bin.png" /></div></div>`
+        `<div class='todo flex' id="${ID}"><span class='content'>firstTodo</span><div class="bin" onclick="deleteTodo()"><img src="./images/bin.png" /></div></div>`
       );
     });
   });
@@ -44,7 +44,7 @@ describe('TodoList()', () => {
       todoList.addTodo(todo);
       assert.deepStrictEqual(
         todoList.toHTML(),
-        `<div class='todo flex'><span class='content'>firstTodo</span><div class="bin"><img src="./images/bin.png" /></div></div>`
+        `<div class='todo flex' id="${ID}"><span class='content'>firstTodo</span><div class="bin" onclick="deleteTodo()"><img src="./images/bin.png" /></div></div>`
       );
     });
   });

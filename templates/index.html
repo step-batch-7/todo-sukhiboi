@@ -20,21 +20,7 @@
           <span class="todo-count">6 Tasks</span>
         </div>
       </div>
-      <div class="todos">
-        <div class="todo"><span class="content">Do this assignment</span></div>
-        <div class="todo"><span class="content">Do this assignment</span></div>
-        <div class="todo completed">
-          <span class="content">Do this assignment</span>
-        </div>
-        <div class="todo"><span class="content">Do this assignment</span></div>
-        <div class="todo"><span class="content">Do this assignment</span></div>
-        <div class="todo"><span class="content">Do this assignment</span></div>
-        <div class="todo"><span class="content">Do this assignment</span></div>
-        <div class="todo"><span class="content">Do this assignment</span></div>
-        <div class="todo"><span class="content">Do this assignment</span></div>
-        <div class="todo"><span class="content">Do this assignment</span></div>
-        <div class="todo"><span class="content">Do this assignment</span></div>
-      </div>
+      <div class="todos" id="todos"></div>
       <div class="addTodo" onclick="showAddNewTodoBox()">
         <div class="sign center">+</div>
       </div>
@@ -43,7 +29,7 @@
           <div class="closeBtn" id="closebtn" onclick="hideAddNewTodoBox()">
             <span>X</span>
           </div>
-          <input class="textbox" id="newTodoInput" />
+          <input class="textbox" id="newTodoInput" autofocus required />
           <div class="addTodoBtn" id="addNewTodoBtn" onclick="addTodo()">
             Add
           </div>

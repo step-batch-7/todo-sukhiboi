@@ -2,9 +2,9 @@ create a server which will serve static pages --DONE
 make todoList class --DONE
 make todo class --DONE
 FOR NOW store to do in MEMORY. --DONE
-set a /addTodo POST route to add todo
+set a /addTodo POST route to add todo --DONE
 set a /toggleTodo POST route to set a todo as done
-set a /deleteTodo route to delte a todo
+set a /deleteTodo route to delte a todo --DONE
 
 -------v1 : creating one todo list which stores todo in memory
 

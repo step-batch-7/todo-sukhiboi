@@ -1,9 +1,3 @@
-const addNewTodoBox = document.getElementById('addNewTodoBox');
-const newTodoInput = document.getElementById('newTodoInput');
-const addNewTodoBtn = document.getElementById('addNewTodoBtn');
-const closebtn = document.getElementById('closebtn');
-const bin = document.getElementById('deleteBtn');
-
 const generateTodoId = function() {
   return Math.floor(Math.random() * 100000 + 1);
 };
@@ -48,14 +42,15 @@ const req = function(method, url, content, cb) {
   request.send(content);
 };
 
-const fetchTodos = function() {
-  const todos = document.getElementById('todos');
+const loadApp = function() {
   req('GET', '/todos', null, res => {
-    todos.innerHTML = res;
-    const todoCount = document.getElementsByClassName('todo').length;
-    document.getElementsByClassName(
-      'todo-count'
-    )[0].innerText = `${todoCount} Tasks`;
+    document.body.innerHTML = res;
+    addNewTodoBox = document.getElementById('addNewTodoBox');
+    newTodoInput = document.getElementById('newTodoInput');
+    addNewTodoBtn = document.getElementById('addNewTodoBtn');
+    closebtn = document.getElementById('closebtn');
+    bin = document.getElementById('deleteBtn');
+    setDate();
   });
 };
 
@@ -81,7 +76,7 @@ const addTodo = function() {
     `id=${generateTodoId()}&&title=${todoContent}`,
     res => {}
   );
-  fetchTodos();
+  loadApp();
   newTodoInput.value = '';
   hideAddNewTodoBox();
 };
@@ -89,7 +84,7 @@ const addTodo = function() {
 const deleteTodo = function() {
   const todoId = event.target.parentElement.parentElement.id;
   req('DELETE', '/deleteTodo', `id=${todoId}`, res => {});
-  fetchTodos();
+  loadApp();
   newTodoInput.value = '';
   hideAddNewTodoBox();
 };
@@ -97,14 +92,9 @@ const deleteTodo = function() {
 const toggleTodo = function() {
   const todoId = event.target.parentElement.parentElement.id;
   req('PATCH', '/toggleTodo', `id=${todoId}`, res => {});
-  fetchTodos();
+  loadApp();
   newTodoInput.value = '';
   hideAddNewTodoBox();
 };
 
-const initilizeApp = function() {
-  setDate();
-  fetchTodos();
-};
-
-document.onload = initilizeApp();
+document.onload = loadApp();

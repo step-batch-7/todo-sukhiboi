@@ -75,6 +75,6 @@ describe('GET /todos()', () => {
     request(app)
       .get('/todos')
       .expect(200)
-      .expect('Content-Length', '0', done);
+      .expect('Content-Length', '696', done);
   });
 });

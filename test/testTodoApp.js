@@ -61,4 +61,20 @@ describe('TodoApp()', () => {
       );
     });
   });
+
+  describe('deleteList()', () => {
+    it('should return the HTML representaion of the lists', () => {
+      const list = new TodoList('myNewList2');
+      list.addTodo(new Todo(23, 'something', date));
+      const list2 = new TodoList('mynewList');
+      list2.addTodo(new Todo(233, 'something big', date));
+      todoApp.createList(list2);
+      todoApp.createList(list);
+      todoApp.deleteList('myNewList2');
+      assert.deepStrictEqual(
+        todoApp.toJSON(),
+        `[[{"title":"something big","date":"${date.toJSON()}","isCompleted":false,"id":233}]]`
+      );
+    });
+  });
 });

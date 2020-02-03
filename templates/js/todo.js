@@ -32,6 +32,12 @@ document.onload = fetchTodos();
 
 const showAddNewTodoBox = function() {
   addNewTodoBox.classList.remove('hidden');
+  newTodoInput.focus();
+  addNewTodoBox.addEventListener('keydown', () => {
+    if (event.key == 'Enter') {
+      addTodo();
+    }
+  });
 };
 
 const hideAddNewTodoBox = function() {

@@ -8,6 +8,37 @@ const generateTodoId = function() {
   return Math.floor(Math.random() * 100000 + 1);
 };
 
+const setDate = function() {
+  const d = new Date();
+  const weekDays = [
+    'Monday',
+    'Tuesday',
+    'Wednesday',
+    'Thursday',
+    'Friday',
+    'Saturday',
+    'Sunday'
+  ];
+  const months = [
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December'
+  ];
+  const currentMonth = months[d.getMonth()];
+  const currentDay = weekDays[d.getDay()];
+  const dateBox = document.getElementsByClassName('month')[0];
+  dateBox.innerText = `${currentMonth}, ${currentDay}, ${d.getDate()}`;
+};
+
 const req = function(method, url, content, cb) {
   const request = new XMLHttpRequest();
   request.onload = function() {
@@ -27,8 +58,6 @@ const fetchTodos = function() {
     )[0].innerText = `${todoCount} Tasks`;
   });
 };
-
-document.onload = fetchTodos();
 
 const showAddNewTodoBox = function() {
   addNewTodoBox.classList.remove('hidden');
@@ -72,3 +101,10 @@ const toggleTodo = function() {
   newTodoInput.value = '';
   hideAddNewTodoBox();
 };
+
+const initilizeApp = function() {
+  setDate();
+  fetchTodos();
+};
+
+document.onload = initilizeApp();

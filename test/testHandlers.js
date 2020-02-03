@@ -8,7 +8,6 @@ describe('GET /', () => {
       .set('Accept', 'text/html, text/css, application/script')
       .expect(200)
       .expect('Content-Type', 'text/html')
-      .expect('Content-Length', '278')
       .expect(/todo/, done);
   });
 });
@@ -27,8 +26,7 @@ describe('GET /styles/styles.css', () => {
       .get('/styles/styles.css')
       .set('Accept', 'text/css')
       .expect(200)
-      .expect('Content-Type', 'text/css')
-      .expect('Content-Length', '0', done);
+      .expect('Content-Type', 'text/css', done);
   });
 });
 
@@ -38,12 +36,11 @@ describe('GET /js/todo.css', () => {
       .get('/js/todo.js')
       .set('Accept', 'application/script')
       .expect(200)
-      .expect('Content-Type', 'application/script')
-      .expect('Content-Length', '0', done);
+      .expect('Content-Type', 'application/script', done);
   });
 });
 
-describe('#POST /addTodo()', () => {
+describe('POST /addTodo()', () => {
   it('should response back with OK', done => {
     request(app)
       .post('/addTodo')
@@ -53,22 +50,31 @@ describe('#POST /addTodo()', () => {
   });
 });
 
-describe('#POST /toggleTodo()', () => {
+describe('POST /toggleTodo()', () => {
   it('should response back with TOGGLED', done => {
     request(app)
-      .post('/toggleTodo')
+      .put('/toggleTodo')
       .send('id=890')
       .expect(200)
       .expect(/TOGGLED/, done);
   });
 });
 
-describe('#POST /deleteTodo()', () => {
+describe('POST /deleteTodo()', () => {
   it('should response back with DELETED', done => {
     request(app)
-      .post('/deleteTodo')
+      .delete('/deleteTodo')
       .send('id=890')
       .expect(200)
       .expect(/DELETED/, done);
+  });
+});
+
+describe('GET .todos()', () => {
+  it('should response back with all the todos', done => {
+    request(app)
+      .get('/todos')
+      .expect(200)
+      .expect('Content-Length', '0', done);
   });
 });

@@ -16,7 +16,7 @@ describe('Todo()', () => {
       const todoId = todo.id;
       assert.deepStrictEqual(
         todo.toHTML(),
-        `<div>firstTodo\n${date.toJSON()}false\n${todoId}</div>`
+        `<div class='todo'><span class='content'>firstTodo</span></div>`
       );
     });
   });

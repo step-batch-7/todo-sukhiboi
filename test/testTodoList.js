@@ -20,7 +20,7 @@ describe('TodoList()', () => {
       todoList.addTodo(todo);
       assert.deepStrictEqual(
         todoList.toHTML(),
-        `<div>firstTodo\n${date.toJSON()}false\n${todoId}</div>`
+        `<div class='todo'><span class='content'>firstTodo</span></div>`
       );
     });
   });
@@ -44,7 +44,7 @@ describe('TodoList()', () => {
       todoList.addTodo(todo);
       assert.deepStrictEqual(
         todoList.toHTML(),
-        `<div>firstTodo\n${date.toJSON()}false\n${todoId}</div>`
+        `<div class='todo'><span class='content'>firstTodo</span></div>`
       );
     });
   });

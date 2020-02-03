@@ -56,3 +56,21 @@ Test folder Content
     - testHandlers.js
     - testTodoList.js
     - testTodo.js
+
+
+- Create TodoApp class
+Responsibilies - 
+    > TodoApp - contains an array of TodoLists
+        1. createList // Create a TodoList
+        2. deleteList // Delete a TodoList
+        3. toHTML // Generate a HTML representaion of it
+        4. toJOSN // Generate a JSON representaion of it
+        5. find // Will find a TodoList
+
+- create a random alphanumberic key generator
+- update the TodoList class to have a id, so that we can identify it.
+- set a /createList route to create a todoList 
+- create a html box which shows to add a todoList
+- set a /deleteList route to delete a todoList 
+- add a option menu to list to delete it
+- update previous routes to take list id also

@@ -95,6 +95,22 @@ body {
   position: relative;
 }
 
+.checkBox {
+  height: 0.8rem;
+  width: 0.8rem;
+  margin-right: 10px;
+  border-radius: 10px;
+  border: 2px solid #5b5fe9;
+  position: relative;
+}
+
+.check {
+  height: 0.5rem;
+  width: 0.5rem;
+  border-radius: 10px;
+  background-color: #5b5fe9;
+}
+
 .completed > .content {
   text-decoration: line-through;
 }

@@ -50,17 +50,17 @@ describe('POST /addTodo()', () => {
   });
 });
 
-describe('POST /toggleTodo()', () => {
+describe('PATCH /toggleTodo()', () => {
   it('should response back with TOGGLED', done => {
     request(app)
-      .put('/toggleTodo')
+      .patch('/toggleTodo')
       .send('id=890')
       .expect(200)
       .expect(/TOGGLED/, done);
   });
 });
 
-describe('POST /deleteTodo()', () => {
+describe('DELETE /deleteTodo()', () => {
   it('should response back with DELETED', done => {
     request(app)
       .delete('/deleteTodo')

@@ -10,7 +10,7 @@ describe('Todo()', () => {
     ID = Todo.generateTodoId();
   });
 
-  describe('#toHTML()', () => {
+  describe('toHTML()', () => {
     it('should return todo in HTML format', () => {
       const todo = new Todo(ID, 'firstTodo', date);
       const todoId = todo.id;
@@ -31,7 +31,7 @@ describe('Todo()', () => {
     });
   });
 
-  describe('#toJSON()', () => {
+  describe('toJSON()', () => {
     it('should return todo in JSON format', () => {
       const todo = new Todo(ID, 'firstTodo', date);
       const todoId = todo.id;
@@ -42,7 +42,7 @@ describe('Todo()', () => {
     });
   });
 
-  describe('#toogle()', () => {
+  describe('toggle()', () => {
     it('should toggle the state of todo', () => {
       const todo = new Todo(ID, 'firstTodo', date);
       todo.toggle();

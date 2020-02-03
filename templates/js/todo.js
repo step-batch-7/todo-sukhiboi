@@ -96,7 +96,7 @@ const deleteTodo = function() {
 
 const toggleTodo = function() {
   const todoId = event.target.parentElement.parentElement.id;
-  req('PUT', '/toggleTodo', `id=${todoId}`, res => {});
+  req('PATCH', '/toggleTodo', `id=${todoId}`, res => {});
   fetchTodos();
   newTodoInput.value = '';
   hideAddNewTodoBox();

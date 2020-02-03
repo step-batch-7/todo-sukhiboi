@@ -67,9 +67,7 @@ describe('TodoList()', () => {
       todoList.deleteTodo(todoId);
       assert.deepStrictEqual(todoList.toJSON(), '[]');
     });
-  });
 
-  describe('#deleteTodo()', () => {
     it('should delete todo in the list which have more than 1 todo', () => {
       todoList.addTodo(new Todo(89, 'firstTodo', date));
       todoList.addTodo(new Todo(12, 'firstTodo', date));
@@ -80,9 +78,7 @@ describe('TodoList()', () => {
         `[{"title":"firstTodo","date":"${date.toJSON()}","isCompleted":false,"id":89},{"title":"firstTodo","date":"${date.toJSON()}","isCompleted":false,"id":34}]`
       );
     });
-  });
 
-  describe('#deleteTodo()', () => {
     it('should not delete any other todo if the requested todo not found', () => {
       const todo = new Todo(34, 'firstTodo', date);
       todoList.addTodo(todo);

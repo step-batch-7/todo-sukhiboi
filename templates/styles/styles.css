@@ -92,10 +92,20 @@ body {
   background-color: rgba(0, 0, 0, 0.1);
   border-radius: 5px;
   margin: 12px 0;
+  position: relative;
 }
 
 .completed > .content {
   text-decoration: line-through;
+}
+
+.bin {
+  margin: 0 1rem 0 auto;
+}
+
+.bin > img {
+  position: absolute;
+  bottom: 12px;
 }
 
 .addTodo {

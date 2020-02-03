@@ -16,7 +16,7 @@ describe('Todo()', () => {
       const todoId = todo.id;
       assert.deepStrictEqual(
         todo.toHTML(),
-        `<div class='todo'><span class='content'>firstTodo</span></div>`
+        `<div class='todo flex'><span class='content'>firstTodo</span><div class="bin"><img src="./images/bin.png" /></div></div>`
       );
     });
   });

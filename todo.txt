@@ -59,6 +59,9 @@ Test folder Content
 
 - change put method to patch in router and app --done
 - Create TodoApp class
+-send the latest todo when someone request on /addTodo
+-send the id of the todo when someone request on /deleteTodo or /toggleTodo
+
 Responsibilies - 
     > TodoApp - contains an array of TodoLists
         1. createList // Create a TodoList

@@ -35,7 +35,12 @@ const hideAddNewTodoBox = function() {
 
 const addTodo = function() {
   const todoContent = newTodoInput.value;
-  req('POST', '/addTodo', `id=${generateTodoId}&&title=${todoContent}`);
+  req(
+    'POST',
+    '/addTodo',
+    `id=${generateTodoId}&&title=${todoContent}`,
+    res => {}
+  );
   fetchTodos();
   newTodoInput.value = '';
   hideAddNewTodoBox();

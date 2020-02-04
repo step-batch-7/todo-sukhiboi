@@ -71,4 +71,9 @@ const createList = function() {
   loadApp();
 };
 
+const deleteList = function(listId) {
+  req('DELETE', '/deleteList', `listName=${listId}`, res => {});
+  loadApp();
+};
+
 document.onload = loadApp();

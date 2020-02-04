@@ -61,14 +61,23 @@ body {
   font-size: 14px;
 }
 
-.todo-count {
+.label {
   display: block;
-  margin-left: 4em;
+  margin: 0 0 2px 4em;
   background: #5b5fe9;
   color: #fff;
   font-size: 14px;
   padding: 5px 10px;
   border-radius: 5px;
+}
+
+.danger {
+  background-color: red;
+  font-weight: 600;
+}
+
+.danger:hover {
+  cursor: pointer;
 }
 
 .todos {

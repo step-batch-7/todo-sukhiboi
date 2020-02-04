@@ -36,7 +36,8 @@ const generateTodoListTemplate = function(todoList) {
           </span>
         </div>
         <div>
-          <span class='todo-count'>${todos.length} Tasks</span>
+          <span class="label">${todos.length} Tasks</span>
+          <span class="label danger" onClick="deleteList('${todoList.name}')">Delete</span>
         </div>
       </div>
       <div class='todos' id='todos-${todoList.name}'>

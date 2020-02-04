@@ -2,37 +2,6 @@ const generateTodoId = function() {
   return Math.floor(Math.random() * 100000 + 1);
 };
 
-const setDate = function() {
-  const d = new Date();
-  const weekDays = [
-    'Monday',
-    'Tuesday',
-    'Wednesday',
-    'Thursday',
-    'Friday',
-    'Saturday',
-    'Sunday'
-  ];
-  const months = [
-    'January',
-    'February',
-    'March',
-    'April',
-    'May',
-    'June',
-    'July',
-    'August',
-    'September',
-    'October',
-    'November',
-    'December'
-  ];
-  const currentMonth = months[d.getMonth()];
-  const currentDay = weekDays[d.getDay()];
-  const dateBox = document.getElementsByClassName('month')[0];
-  dateBox.innerText = `${currentMonth}, ${currentDay}, ${d.getDate()}`;
-};
-
 const req = function(method, url, content, cb) {
   const request = new XMLHttpRequest();
   request.onload = function() {
@@ -40,13 +9,6 @@ const req = function(method, url, content, cb) {
   };
   request.open(method, url);
   request.send(content);
-};
-
-const loadApp = function() {
-  req('GET', '/todos', null, res => {
-    generateTodoList(res);
-    setDate();
-  });
 };
 
 const showAddNewTodoBox = function(listId) {
@@ -64,6 +26,13 @@ const showAddNewTodoBox = function(listId) {
 const hideAddNewTodoBox = function(listId) {
   const addNewTodoBox = document.getElementById(`addNewTodoBox-${listId}`);
   addNewTodoBox.classList.add('hidden');
+};
+
+const loadApp = function() {
+  req('GET', '/todos', null, res => {
+    generateTodoList(res);
+    setDate();
+  });
 };
 
 const addTodo = function(listId) {

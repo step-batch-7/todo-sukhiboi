@@ -64,7 +64,7 @@ body {
 
 .todo-count {
   display: block;
-  margin-left: 5em;
+  margin-left: 4em;
   background: #5b5fe9;
   color: #fff;
   font-size: 14px;
@@ -198,9 +198,8 @@ body {
   margin: 0 auto;
 }
 
-.addtodobtn:hover {
+.addtodoBtn:hover {
   cursor: pointer;
-  background-color: red;
 }
 
 .closeBtn {

@@ -40,33 +40,89 @@ describe('GET /js/todo.css', () => {
   });
 });
 
+describe('DELETE /deleteList()', () => {
+  it('should response back with DELETED', done => {
+    request(app)
+      .post('/createList')
+      .send('listName=newList')
+      .expect(200)
+      .expect(/CREATED/, done);
+  });
+});
+
+describe('DELETE /deleteList()', () => {
+  it('should response back with DELETED', done => {
+    request(app)
+      .post('/createList')
+      .send('listName=newList')
+      .expect(200)
+      .end(() => {
+        request(app)
+          .delete('/deleteList')
+          .send('todoListId=newList')
+          .expect(/DELETED/)
+          .expect(200, done);
+      });
+  });
+});
+
 describe('POST /addTodo()', () => {
   it('should response back with OK', done => {
     request(app)
-      .post('/addTodo')
-      .send('todoListId=firstList&id=890&title=My+first+todo')
+      .post('/createList')
+      .send('listName=newList')
       .expect(200)
-      .expect(/OK/, done);
+      .end(() => {
+        request(app)
+          .post('/addTodo')
+          .send('todoListId=newList&id=89&title=NewTodo')
+          .expect(200)
+          .expect(/OK/, done);
+      });
   });
 });
 
 describe('PATCH /toggleTodo()', () => {
   it('should response back with TOGGLED', done => {
     request(app)
-      .patch('/toggleTodo')
-      .send('todoListId=firstList&id=890')
+      .post('/createList')
+      .send('listName=newList')
       .expect(200)
-      .expect(/TOGGLED/, done);
+      .end(() => {
+        request(app)
+          .post('/addTodo')
+          .send('todoListId=newList&id=89&title=NewTodo')
+          .expect(200)
+          .end(() => {
+            request(app)
+              .patch('/toggleTodo')
+              .send('todoListId=newList&id=89')
+              .expect(200)
+              .expect(/TOGGLED/, done);
+          });
+      });
   });
 });
 
 describe('DELETE /deleteTodo()', () => {
   it('should response back with DELETED', done => {
     request(app)
-      .delete('/deleteTodo')
-      .send('todoListId=firstList&id=890')
+      .post('/createList')
+      .send('listName=newList')
       .expect(200)
-      .expect(/DELETED/, done);
+      .end(() => {
+        request(app)
+          .post('/addTodo')
+          .send('todoListId=newList&id=89&title=NewTodo')
+          .expect(200)
+          .end(() => {
+            request(app)
+              .delete('/deleteTodo')
+              .send('todoListId=newList&id=89')
+              .expect(200)
+              .expect(/DELETED/, done);
+          });
+      });
   });
 });
 
@@ -75,6 +131,6 @@ describe('GET /todos()', () => {
     request(app)
       .get('/todos')
       .expect(200)
-      .expect('Content-Length', '66', done);
+      .expect('Content-Length', '279', done);
   });
 });

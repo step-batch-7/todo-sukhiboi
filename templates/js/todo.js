@@ -44,57 +44,50 @@ const req = function(method, url, content, cb) {
 
 const loadApp = function() {
   req('GET', '/todos', null, res => {
-    document.body.innerHTML = res;
-    addNewTodoBox = document.getElementById('addNewTodoBox');
-    newTodoInput = document.getElementById('newTodoInput');
-    addNewTodoBtn = document.getElementById('addNewTodoBtn');
-    closebtn = document.getElementById('closebtn');
-    bin = document.getElementById('deleteBtn');
+    generateTodoList(res);
     setDate();
   });
 };
 
-const showAddNewTodoBox = function() {
+const showAddNewTodoBox = function(listId) {
+  const addNewTodoBox = document.getElementById(`addNewTodoBox-${listId}`);
+  const newTodoInput = document.getElementById(`newTodoInput-${listId}`);
   addNewTodoBox.classList.remove('hidden');
   newTodoInput.focus();
   addNewTodoBox.addEventListener('keydown', () => {
     if (event.key == 'Enter') {
-      addTodo();
+      addTodo(listId);
     }
   });
 };
 
-const hideAddNewTodoBox = function() {
+const hideAddNewTodoBox = function(listId) {
+  const addNewTodoBox = document.getElementById(`addNewTodoBox-${listId}`);
   addNewTodoBox.classList.add('hidden');
 };
 
-const addTodo = function() {
+const addTodo = function(listId) {
+  const newTodoInput = document.getElementById(`newTodoInput-${listId}`);
   const todoContent = newTodoInput.value;
   req(
     'POST',
     '/addTodo',
-    `id=${generateTodoId()}&&title=${todoContent}`,
+    `todoListId=${listId}&id=${generateTodoId()}&&title=${todoContent}`,
     res => {}
   );
   loadApp();
   newTodoInput.value = '';
-  hideAddNewTodoBox();
+  hideAddNewTodoBox(listId);
 };
 
-const deleteTodo = function() {
-  const todoId = event.target.parentElement.parentElement.id;
-  req('DELETE', '/deleteTodo', `id=${todoId}`, res => {});
+const deleteTodo = function(todoId, listId) {
+  req('DELETE', '/deleteTodo', `todoListId=${listId}&id=${todoId}`, res => {});
   loadApp();
-  newTodoInput.value = '';
-  hideAddNewTodoBox();
 };
 
-const toggleTodo = function() {
-  const todoId = event.target.parentElement.parentElement.id;
-  req('PATCH', '/toggleTodo', `id=${todoId}`, res => {});
+const toggleTodo = function(todoId, listId) {
+  req('PATCH', '/toggleTodo', `todoListId=${listId}&id=${todoId}`, res => {});
   loadApp();
-  newTodoInput.value = '';
-  hideAddNewTodoBox();
 };
 
 document.onload = loadApp();

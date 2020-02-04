@@ -44,7 +44,7 @@ describe('POST /addTodo()', () => {
   it('should response back with OK', done => {
     request(app)
       .post('/addTodo')
-      .send('id=890&title=My+first+todo')
+      .send('todoListId=firstList&id=890&title=My+first+todo')
       .expect(200)
       .expect(/OK/, done);
   });
@@ -54,7 +54,7 @@ describe('PATCH /toggleTodo()', () => {
   it('should response back with TOGGLED', done => {
     request(app)
       .patch('/toggleTodo')
-      .send('id=890')
+      .send('todoListId=firstList&id=890')
       .expect(200)
       .expect(/TOGGLED/, done);
   });
@@ -64,7 +64,7 @@ describe('DELETE /deleteTodo()', () => {
   it('should response back with DELETED', done => {
     request(app)
       .delete('/deleteTodo')
-      .send('id=890')
+      .send('todoListId=firstList&id=890')
       .expect(200)
       .expect(/DELETED/, done);
   });
@@ -75,6 +75,6 @@ describe('GET /todos()', () => {
     request(app)
       .get('/todos')
       .expect(200)
-      .expect('Content-Length', '696', done);
+      .expect('Content-Length', '66', done);
   });
 });

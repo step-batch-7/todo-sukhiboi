@@ -10,35 +10,14 @@ describe('Todo()', () => {
     ID = Todo.generateTodoId();
   });
 
-  describe('toHTML()', () => {
+  describe('toJSON()', () => {
     it('should return todo in HTML format', () => {
       const todo = new Todo(ID, 'firstTodo', date);
-      const todoId = todo.id;
-      assert.deepStrictEqual(
-        todo.toHTML(),
-        `<div class='todo flex ' id="${ID}"><div class="checkBox"><div class="box" onclick="toggleTodo()"></div><div class="check center hidden" onclick="toggleTodo()"></div></div><span class='content'>firstTodo</span><div class="bin" onclick="deleteTodo()"><img src="./images/bin.png" /></div></div>`
-      );
-    });
-
-    it('should return checked todo in HTML format', () => {
-      const todo = new Todo(ID, 'firstTodo', date);
-      const todoId = todo.id;
-      todo.toggle();
-      assert.deepStrictEqual(
-        todo.toHTML(),
-        `<div class='todo flex completed' id="${ID}"><div class="checkBox"><div class="box" onclick="toggleTodo()"></div><div class="check center " onclick="toggleTodo()"></div></div><span class='content'>firstTodo</span><div class="bin" onclick="deleteTodo()"><img src="./images/bin.png" /></div></div>`
-      );
-    });
-  });
-
-  describe('toJSON()', () => {
-    it('should return todo in JSON format', () => {
-      const todo = new Todo(ID, 'firstTodo', date);
-      const todoId = todo.id;
-      assert.deepStrictEqual(
-        todo.toJSON(),
-        `{"title":"firstTodo","date":"${date.toJSON()}","isCompleted":false,"id":${todoId}}`
-      );
+      assert.deepStrictEqual(todo.toJSON(), {
+        id: ID,
+        isCompleted: false,
+        title: 'firstTodo'
+      });
     });
   });
 

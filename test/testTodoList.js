@@ -13,39 +13,37 @@ describe('TodoList()', () => {
     ID = Todo.generateTodoId();
   });
 
-  describe('#toHTML()', () => {
+  describe('#toJSON()', () => {
     it('should return all todo in HTML format', () => {
       const todo = new Todo(ID, 'firstTodo', date);
-      const todoId = todo.id;
       todoList.addTodo(todo);
-      assert.deepStrictEqual(
-        todoList.toHTML(),
-        `<div class="todoList"> <div class="header flex"> <div> <span class="title">mylist</span> <span class="month" >Febraray, <span class="bold">Sunday</span>, 02</span > </div><div> <span class="todo-count">1 Tasks</span> </div></div><div class="todos" id="todos"><div class='todo flex ' id="${ID}"><div class="checkBox"><div class="box" onclick="toggleTodo()"></div><div class="check center hidden" onclick="toggleTodo()"></div></div><span class='content'>firstTodo</span><div class="bin" onclick="deleteTodo()"><img src="./images/bin.png" /></div></div></div><div class="addTodo" onclick="showAddNewTodoBox()"> <div class="sign center">+</div></div><div class="filter hidden" id="addNewTodoBox"> <div class="center newTodo"> <div class="closeBtn" id="closebtn" onclick="hideAddNewTodoBox()"> <span>X</span> </div><input class="textbox" id="newTodoInput" placeholder="Title..." autofocus required/> <div class="addTodoBtn" id="addNewTodoBtn" onclick="addTodo()"> Add </div></div></div></div>`
-      );
-    });
-  });
-
-  describe('#toJSON()', () => {
-    it('should return all todo in JSON format', () => {
-      const todo = new Todo(ID, 'firstTodo', date);
-      const todoId = todo.id;
-      todoList.addTodo(todo);
-      assert.deepStrictEqual(
-        todoList.toJSON(),
-        `[{"title":"firstTodo","date":"${date.toJSON()}","isCompleted":false,"id":${todoId}}]`
-      );
+      assert.deepStrictEqual(todoList.toJSON(), {
+        name: 'mylist',
+        todos: [
+          {
+            id: ID,
+            isCompleted: false,
+            title: 'firstTodo'
+          }
+        ]
+      });
     });
   });
 
   describe('#addTodo()', () => {
     it('should add a todo in the list', () => {
       const todo = new Todo(ID, 'firstTodo', date);
-      const todoId = todo.id;
       todoList.addTodo(todo);
-      assert.deepStrictEqual(
-        todoList.toHTML(),
-        `<div class="todoList"> <div class="header flex"> <div> <span class="title">mylist</span> <span class="month" >Febraray, <span class="bold">Sunday</span>, 02</span > </div><div> <span class="todo-count">1 Tasks</span> </div></div><div class="todos" id="todos"><div class='todo flex ' id="${ID}"><div class="checkBox"><div class="box" onclick="toggleTodo()"></div><div class="check center hidden" onclick="toggleTodo()"></div></div><span class='content'>firstTodo</span><div class="bin" onclick="deleteTodo()"><img src="./images/bin.png" /></div></div></div><div class="addTodo" onclick="showAddNewTodoBox()"> <div class="sign center">+</div></div><div class="filter hidden" id="addNewTodoBox"> <div class="center newTodo"> <div class="closeBtn" id="closebtn" onclick="hideAddNewTodoBox()"> <span>X</span> </div><input class="textbox" id="newTodoInput" placeholder="Title..." autofocus required/> <div class="addTodoBtn" id="addNewTodoBtn" onclick="addTodo()"> Add </div></div></div></div>`
-      );
+      assert.deepStrictEqual(todoList.toJSON(), {
+        name: 'mylist',
+        todos: [
+          {
+            id: ID,
+            isCompleted: false,
+            title: 'firstTodo'
+          }
+        ]
+      });
     });
   });
 
@@ -65,7 +63,10 @@ describe('TodoList()', () => {
       const todoId = todo.id;
       todoList.addTodo(todo);
       todoList.deleteTodo(todoId);
-      assert.deepStrictEqual(todoList.toJSON(), '[]');
+      assert.deepStrictEqual(todoList.toJSON(), {
+        name: 'mylist',
+        todos: []
+      });
     });
 
     it('should delete todo in the list which have more than 1 todo', () => {
@@ -73,20 +74,37 @@ describe('TodoList()', () => {
       todoList.addTodo(new Todo(12, 'firstTodo', date));
       todoList.addTodo(new Todo(34, 'firstTodo', date));
       todoList.deleteTodo(12);
-      assert.deepStrictEqual(
-        todoList.toJSON(),
-        `[{"title":"firstTodo","date":"${date.toJSON()}","isCompleted":false,"id":89},{"title":"firstTodo","date":"${date.toJSON()}","isCompleted":false,"id":34}]`
-      );
+      assert.deepStrictEqual(todoList.toJSON(), {
+        name: 'mylist',
+        todos: [
+          {
+            id: 89,
+            isCompleted: false,
+            title: 'firstTodo'
+          },
+          {
+            id: 34,
+            isCompleted: false,
+            title: 'firstTodo'
+          }
+        ]
+      });
     });
 
     it('should not delete any other todo if the requested todo not found', () => {
       const todo = new Todo(34, 'firstTodo', date);
       todoList.addTodo(todo);
       todoList.deleteTodo(7);
-      assert.deepStrictEqual(
-        todoList.toJSON(),
-        `[{"title":"firstTodo","date":"${date.toJSON()}","isCompleted":false,"id":34}]`
-      );
+      assert.deepStrictEqual(todoList.toJSON(), {
+        name: 'mylist',
+        todos: [
+          {
+            id: 34,
+            isCompleted: false,
+            title: 'firstTodo'
+          }
+        ]
+      });
     });
   });
 });

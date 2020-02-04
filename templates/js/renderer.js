@@ -19,6 +19,14 @@ const generateTodosAsHTML = function(todos, listId) {
 
 const generateTodoListTemplate = function(todoList) {
   const todos = todoList.todos;
+  if (todoList.name == 'fIlTeR') {
+    return `<div class="filter addNewListBox" id="${todoList.name}">
+    <input class="center newListInput" placeholder="List Name..." id="newListInput"/>
+      <div class='addList center' onclick='createList()'>
+        <div class='sign center'>+</div>
+      </div>
+      </div>`;
+  }
   return `<div class='todoList'>
       <div class='header flex'>
         <div>

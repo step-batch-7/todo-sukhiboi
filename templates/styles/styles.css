@@ -1,6 +1,5 @@
 body {
   background-color: #5b5fe9;
-  overflow: hidden;
   font-family: Arial, Helvetica, sans-serif;
   margin: 0;
   padding: 0;
@@ -211,4 +210,47 @@ body {
 
 .closeBtn:hover {
   cursor: pointer;
+}
+
+.addNewListBox {
+  height: 35rem;
+  width: 20rem;
+  border-radius: 10px;
+  margin: 20px;
+  position: relative !important;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.addList {
+  height: 3rem;
+  width: 3rem;
+  border-radius: 50%;
+  background: #5b5fe9;
+  padding: 8px;
+  top: 54%;
+}
+
+.addList > .sign {
+  font-size: 3.2rem;
+}
+
+.addList:hover {
+  cursor: pointer;
+}
+
+.newListInput {
+  top: 38%;
+  background: transparent;
+  border: none;
+  outline: none;
+  border-bottom: 2px solid #fff;
+  width: 60%;
+  color: #fff;
+  font-weight: 600;
+  font-size: 1.5rem;
+  padding: 10px;
+}
+
+.newListInput::placeholder {
+  color: rgba(255, 255, 255, 0.4);
 }

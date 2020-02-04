@@ -32,6 +32,12 @@ const loadApp = function() {
   req('GET', '/todos', null, res => {
     generateTodoList(res);
     setDate();
+    const filter = document.getElementById('fIlTeR');
+    filter.addEventListener('keydown', () => {
+      if (event.key == 'Enter') {
+        createList();
+      }
+    });
   });
 };
 
@@ -56,6 +62,12 @@ const deleteTodo = function(todoId, listId) {
 
 const toggleTodo = function(todoId, listId) {
   req('PATCH', '/toggleTodo', `todoListId=${listId}&id=${todoId}`, res => {});
+  loadApp();
+};
+
+const createList = function() {
+  const newListInput = document.getElementById('newListInput');
+  req('POST', '/createList', `listName=${newListInput.value}`, res => {});
   loadApp();
 };
 

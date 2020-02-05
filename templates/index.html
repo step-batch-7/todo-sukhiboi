@@ -7,7 +7,17 @@
     <link rel="stylesheet" href="./styles//styles.css" type="text/css" />
     <title>Todo</title>
   </head>
-  <body class="flex"></body>
+  <body>
+    <div class="main-header">
+      <input
+        placeholder="List Name..."
+        autocomplete="off"
+        id="newListInput"
+        onkeydown="createList()"
+      />
+    </div>
+    <div id="window" class="flex"></div>
+  </body>
   <script src="./js/todo.js"></script>
   <script src="./js/renderer.js"></script>
   <script src="./js/dateGenerator.js"></script>

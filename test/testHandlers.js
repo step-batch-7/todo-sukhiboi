@@ -131,6 +131,6 @@ describe('GET /todos()', () => {
     request(app)
       .get('/todos')
       .expect(200)
-      .expect('Content-Length', '279', done);
+      .expect('Content-Length', '250', done);
   });
 });

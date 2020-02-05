@@ -19,14 +19,6 @@ const generateTodosAsHTML = function(todos, listId) {
 
 const generateTodoListTemplate = function(todoList) {
   const todos = todoList.todos;
-  if (todoList.name == 'fIlTeR') {
-    return `<div class="filter addNewListBox" id="${todoList.name}">
-    <input class="center newListInput" placeholder="List Name..." id="newListInput"/>
-      <div class='addList center' onclick='createList()'>
-        <div class='sign center'>+</div>
-      </div>
-      </div>`;
-  }
   return `<div class='todoList'>
       <div class='header flex'>
       <div class="option-box hidden" id="option-box-${todoList.name}">
@@ -50,34 +42,23 @@ const generateTodoListTemplate = function(todoList) {
         </div>
         <div>
           <span class="label">${todos.length} Tasks</span>
-          <span class="label bold" onclick='showAddNewTodoBox("${
-            todoList.name
-          }")'>Add Todo</span>
         </div>
       </div>
       <div class='todos' id='todos-${todoList.name}'>
       ${generateTodosAsHTML(todos, todoList.name)}
+      <div class='inputBar flex' id="addNewTodoBox-${todoList.name}">
+      <input
+       class='textbox'
+       id='newTodoInput-${todoList.name}'
+       placeholder='Title...'
+       autofocus
+       required
+       onkeydown="addTodo('${todoList.name}')"
+       />
+       <div class="addTodo" onclick="addTodo('${todoList.name}')">
+        <div class="sign center">+</div>
       </div>
-      <div class='filter hidden' id='addNewTodoBox-${todoList.name}'>
-        <div class='center newTodo'>
-          <div class='closeBtn' id='closebtn-${
-            todoList.name
-          }' onclick='hideAddNewTodoBox("${todoList.name}")'>
-            <span>X</span>
-          </div>
-          <input
-            class='textbox'
-            id='newTodoInput-${todoList.name}'
-            placeholder='Title...'
-            autofocus
-            required
-          />
-          <div class='addTodoBtn' id='addNewTodoBtn-${
-            todoList.name
-          }' onclick='addTodo("${todoList.name}")'>
-            Add
-          </div>
-        </div>
+    </div>
       </div>
     </div>`;
 };
@@ -87,5 +68,5 @@ const generateTodoList = function(res) {
   const todoListsAsHTML = todoLists
     .map(list => generateTodoListTemplate(list))
     .join('\n');
-  document.body.innerHTML = todoListsAsHTML;
+  document.getElementById('window').innerHTML = todoListsAsHTML;
 };

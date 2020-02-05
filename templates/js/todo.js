@@ -11,23 +11,6 @@ const req = function(method, url, content, cb) {
   request.send(content);
 };
 
-const showAddNewTodoBox = function(listId) {
-  const addNewTodoBox = document.getElementById(`addNewTodoBox-${listId}`);
-  const newTodoInput = document.getElementById(`newTodoInput-${listId}`);
-  addNewTodoBox.classList.remove('hidden');
-  newTodoInput.focus();
-  addNewTodoBox.addEventListener('keydown', () => {
-    if (event.key == 'Enter') {
-      addTodo(listId);
-    }
-  });
-};
-
-const hideAddNewTodoBox = function(listId) {
-  const addNewTodoBox = document.getElementById(`addNewTodoBox-${listId}`);
-  addNewTodoBox.classList.add('hidden');
-};
-
 const closeOptionBox = function(id) {
   const optioBox = document.getElementById(id);
   optioBox.classList.add('hidden');
@@ -42,16 +25,11 @@ const loadApp = function() {
   req('GET', '/todos', null, res => {
     generateTodoList(res);
     setDate();
-    const filter = document.getElementById('fIlTeR');
-    filter.addEventListener('keydown', () => {
-      if (event.key == 'Enter') {
-        createList();
-      }
-    });
   });
 };
 
 const addTodo = function(listId) {
+  if (event.key !== 'Enter') return;
   const newTodoInput = document.getElementById(`newTodoInput-${listId}`);
   const todoContent = newTodoInput.value;
   req(
@@ -62,7 +40,6 @@ const addTodo = function(listId) {
   );
   loadApp();
   newTodoInput.value = '';
-  hideAddNewTodoBox(listId);
 };
 
 const deleteTodo = function(todoId, listId) {
@@ -76,8 +53,10 @@ const toggleTodo = function(todoId, listId) {
 };
 
 const createList = function() {
+  if (event.key !== 'Enter') return;
   const newListInput = document.getElementById('newListInput');
   req('POST', '/createList', `listName=${newListInput.value}`, res => {});
+  newListInput.value = '';
   loadApp();
 };
 

@@ -23,9 +23,38 @@ body {
   display: none;
 }
 
+#window {
+  width: 100vw;
+}
+
+.main-header {
+  text-align: center;
+  height: fit-content;
+  width: 100vw;
+}
+
+.main-header > input {
+  font-weight: 600;
+  display: block;
+  margin: 10px auto 20px;
+  border: none;
+  background: transparent;
+  border-bottom: 2px solid #fff;
+  width: 70%;
+  outline: none;
+  color: #fff;
+  padding: 10px;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.main-header > input::placeholder {
+  color: rgba(255, 255, 255, 0.4);
+}
+
 .todoList {
   background-color: #fff;
-  height: 35rem;
+  height: fit-content;
   width: 20rem;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
@@ -63,7 +92,7 @@ body {
 
 .label {
   display: block;
-  margin: 0 0 2px 3em;
+  margin: 0 0 2px 4em;
   background: #5b5fe9;
   color: #fff;
   font-size: 14px;
@@ -234,6 +263,32 @@ body {
   margin: 20px;
   position: relative !important;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.inputBar {
+  position: relative;
+}
+
+.inputBar > input {
+  padding: 8px 40px 8px 10px;
+  width: 100%;
+}
+
+.inputBar > .addTodo {
+  top: 23%;
+  height: 1rem;
+  width: 1rem;
+  position: absolute;
+  right: 2%;
+  bottom: 15%;
+  border-radius: 50%;
+  background: #5b5fe9;
+  padding: 8px;
+  transform: scale(0.8);
+}
+
+.inputBar > .addTodo > .sign {
+  font-size: 1.5rem;
 }
 
 .addList {

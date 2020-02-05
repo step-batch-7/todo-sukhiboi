@@ -29,6 +29,19 @@ const generateTodoListTemplate = function(todoList) {
   }
   return `<div class='todoList'>
       <div class='header flex'>
+      <div class="option-box hidden" id="option-box-${todoList.name}">
+      <span class="closeBtn closeOptionBoxBtn" onclick="closeOptionBox('option-box-${
+        todoList.name
+      }')">x</span>
+      <div class="option danger" onClick="deleteList('${
+        todoList.name
+      }')">Delete List</div>
+    </div>
+    <div class="option-bullets" id="option-bullets-${
+      todoList.name
+    }" onclick="showOptionBox('option-box-${
+    todoList.name
+  }')"><div class="bullet"></div class="bullet"><div class="bullet"></div><div class="bullet"></div></div>
         <div>
           <span class='title'>${todoList.name}</span>
           <span class='month'>
@@ -37,14 +50,13 @@ const generateTodoListTemplate = function(todoList) {
         </div>
         <div>
           <span class="label">${todos.length} Tasks</span>
-          <span class="label danger" onClick="deleteList('${todoList.name}')">Delete</span>
+          <span class="label bold" onclick='showAddNewTodoBox("${
+            todoList.name
+          }")'>Add Todo</span>
         </div>
       </div>
       <div class='todos' id='todos-${todoList.name}'>
       ${generateTodosAsHTML(todos, todoList.name)}
-      </div>
-      <div class='addTodo' onclick='showAddNewTodoBox("${todoList.name}")'>
-        <div class='sign center'>+</div>
       </div>
       <div class='filter hidden' id='addNewTodoBox-${todoList.name}'>
         <div class='center newTodo'>

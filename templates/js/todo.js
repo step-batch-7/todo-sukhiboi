@@ -28,6 +28,16 @@ const hideAddNewTodoBox = function(listId) {
   addNewTodoBox.classList.add('hidden');
 };
 
+const closeOptionBox = function(id) {
+  const optioBox = document.getElementById(id);
+  optioBox.classList.add('hidden');
+};
+
+const showOptionBox = function(id) {
+  const optioBox = document.getElementById(id);
+  optioBox.classList.remove('hidden');
+};
+
 const loadApp = function() {
   req('GET', '/todos', null, res => {
     generateTodoList(res);

@@ -63,16 +63,21 @@ body {
 
 .label {
   display: block;
-  margin: 0 0 2px 4em;
+  margin: 0 0 2px 3em;
   background: #5b5fe9;
   color: #fff;
   font-size: 14px;
   padding: 5px 10px;
+  text-align: center;
   border-radius: 5px;
 }
 
+.label:hover {
+  cursor: pointer;
+}
+
 .danger {
-  background-color: red;
+  color: red;
   font-weight: 600;
 }
 
@@ -84,6 +89,7 @@ body {
   padding: 0px 10px;
   overflow-y: scroll;
   height: 78%;
+  margin: 10px 0;
 }
 
 .todo:first-child {
@@ -262,4 +268,51 @@ body {
 
 .newListInput::placeholder {
   color: rgba(255, 255, 255, 0.4);
+}
+
+.option-bullets {
+  height: fit-content;
+  width: fit-content;
+  position: absolute;
+  right: 0.8rem;
+  top: 0.8rem;
+}
+
+.option-bullets:hover {
+  cursor: pointer;
+}
+
+.bullet {
+  margin: 1px;
+  height: 0.37rem;
+  width: 0.37rem;
+  background-color: #5b5fe9;
+  border-radius: 50%;
+}
+
+.option-box {
+  position: absolute;
+  background: #fff;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  border-radius: 10px;
+  text-align: right;
+  padding-top: 4px;
+  box-shadow: 0px 0px 20px 2px rgba(0, 0, 0, 0.4);
+}
+
+.closeOptionBoxBtn {
+  padding: 0 10px;
+}
+
+.option {
+  font-size: 16px;
+  padding: 10px 20px;
+  text-align: center;
+}
+
+.option:hover {
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.02);
 }

@@ -12,7 +12,7 @@ const generateTodosAsHTML = function(todos, listId) {
     </div><span class='content'>${
       todo.title
     }</span><div class="bin" onclick="deleteTodo('${todo.id}', '${listId}')">
-    <img src="./images/bin.png" /></div></div>`;
+    <img src="./images/delete.png" /></div></div>`;
   });
   return todosAsHTML.join('\n');
 };

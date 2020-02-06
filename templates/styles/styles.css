@@ -1,5 +1,13 @@
+/*
+Color Platte
+
+#F7F7F7
+#F85D63
+#728AF8
+*/
+
 body {
-  background-color: #5b5fe9;
+  background-color: #f85d63;
   font-family: Arial, Helvetica, sans-serif;
   margin: 0;
   padding: 0;
@@ -25,12 +33,14 @@ body {
 
 #window {
   width: 100vw;
+  justify-content: center;
 }
 
 .main-header {
   text-align: center;
   height: fit-content;
   width: 100vw;
+  margin: 30px 0 50px;
 }
 
 .main-header > input {
@@ -39,27 +49,32 @@ body {
   margin: 10px auto 20px;
   border: none;
   background: transparent;
-  border-bottom: 2px solid #fff;
+  border-bottom: 2px solid #f7f7f7;
   width: 70%;
   outline: none;
-  color: #fff;
+  color: #f7f7f7;
   padding: 10px;
   font-size: 1.5rem;
   text-align: center;
 }
 
 .main-header > input::placeholder {
-  color: rgba(255, 255, 255, 0.4);
+  color: rgba(255, 255, 255, 0.6);
 }
 
 .todoList {
-  background-color: #fff;
+  background-color: #f7f7f7;
   height: fit-content;
   width: 20rem;
   border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-  margin: 20px;
+  margin: 8px;
   position: relative;
+  transition: 0.3s box-shadow ease-in-out;
+}
+
+.todoList:hover {
+  box-shadow: 0 0 1rem 2px rgba(0, 0, 0, 0.5);
+  transition: 0.3s box-shadow ease-in-out;
 }
 
 .header {
@@ -73,7 +88,7 @@ body {
 }
 
 .title {
-  color: #5b5fe9;
+  color: #728af8;
   font-size: 22px;
   display: block;
   font-weight: 600;
@@ -92,17 +107,13 @@ body {
 
 .label {
   display: block;
-  margin: 0 0 2px 4em;
-  background: #5b5fe9;
-  color: #fff;
+  margin: 0 0 2px 5em;
+  background: #728af8;
+  color: #f7f7f7;
   font-size: 14px;
   padding: 5px 10px;
   text-align: center;
   border-radius: 5px;
-}
-
-.label:hover {
-  cursor: pointer;
 }
 
 .danger {
@@ -118,7 +129,7 @@ body {
   padding: 0px 10px;
   overflow-y: scroll;
   height: 78%;
-  margin: 10px 0;
+  margin: 20px 0 10px;
 }
 
 .todo:first-child {
@@ -146,7 +157,7 @@ body {
   width: 0.8rem;
   margin-right: 10px;
   border-radius: 10px;
-  border: 2px solid #5b5fe9;
+  border: 2px solid #728af8;
   position: relative;
 }
 
@@ -159,7 +170,7 @@ body {
   height: 0.5rem;
   width: 0.5rem;
   border-radius: 10px;
-  background-color: #5b5fe9;
+  background-color: #728af8;
 }
 
 .completed > .content {
@@ -170,9 +181,14 @@ body {
   margin: 0 1rem 0 auto;
 }
 
+.bin:hover {
+  cursor: pointer;
+}
+
 .bin > img {
   position: absolute;
   bottom: 12px;
+  transform: scale(0.8);
 }
 
 .addTodo {
@@ -182,7 +198,7 @@ body {
   right: 4%;
   bottom: 4%;
   border-radius: 50%;
-  background: #5b5fe9;
+  background: #728af8;
   padding: 8px;
 }
 
@@ -192,7 +208,7 @@ body {
 
 .sign {
   font-size: 2.2rem;
-  color: #fff;
+  color: #f7f7f7;
 }
 
 .filter {
@@ -207,7 +223,7 @@ body {
 .newTodo {
   width: 80%;
   border-radius: 4px;
-  background: #fff;
+  background: #f7f7f7;
   padding: 8px;
   text-align: center;
   position: relative;
@@ -220,7 +236,7 @@ body {
   width: 80%;
   outline: none;
   border: none;
-  border: 2px solid #5b5fe9;
+  border: 2px solid #728af8;
   border-radius: 4px;
   font-size: 16px;
   padding: 8px 10px;
@@ -233,8 +249,8 @@ body {
   border-radius: 4px;
   padding: 5px 15px;
   font-size: 16px;
-  background-color: #5b5fe9;
-  color: #fff;
+  background-color: #728af8;
+  color: #f7f7f7;
   outline: none;
   box-shadow: none;
   margin-top: 2px;
@@ -248,7 +264,7 @@ body {
 .closeBtn {
   font-size: 10px;
   text-align: right;
-  color: #5b5fe9;
+  color: #728af8;
   font-weight: 900;
 }
 
@@ -282,7 +298,7 @@ body {
   right: 2%;
   bottom: 15%;
   border-radius: 50%;
-  background: #5b5fe9;
+  background: #728af8;
   padding: 8px;
   transform: scale(0.8);
 }
@@ -295,7 +311,7 @@ body {
   height: 3rem;
   width: 3rem;
   border-radius: 50%;
-  background: #5b5fe9;
+  background: #728af8;
   padding: 8px;
   top: 54%;
 }
@@ -313,16 +329,16 @@ body {
   background: transparent;
   border: none;
   outline: none;
-  border-bottom: 2px solid #fff;
+  border-bottom: 2px solid #f7f7f7;
   width: 60%;
-  color: #fff;
+  color: #f7f7f7;
   font-weight: 600;
   font-size: 1.5rem;
   padding: 10px;
 }
 
 .newListInput::placeholder {
-  color: rgba(255, 255, 255, 0.4);
+  color: rgba(255, 255, 255, 0.6);
 }
 
 .option-bullets {
@@ -341,13 +357,13 @@ body {
   margin: 1px;
   height: 0.37rem;
   width: 0.37rem;
-  background-color: #5b5fe9;
+  background-color: #728af8;
   border-radius: 50%;
 }
 
 .option-box {
   position: absolute;
-  background: #fff;
+  background: #f7f7f7;
   z-index: 1;
   top: 0;
   right: 0;
@@ -363,7 +379,7 @@ body {
 
 .option {
   font-size: 16px;
-  padding: 10px 20px;
+  padding: 15px 30px;
   text-align: center;
 }
 

@@ -29,7 +29,6 @@ const loadApp = function() {
 };
 
 const addTodo = function(listId) {
-  if (event.key !== 'Enter') return;
   const newTodoInput = document.getElementById(`newTodoInput-${listId}`);
   const todoContent = newTodoInput.value;
   req(

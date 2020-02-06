@@ -53,7 +53,6 @@ const generateTodoListTemplate = function(todoList) {
        placeholder='Title...'
        autofocus
        required
-       onkeydown="addTodo('${todoList.name}')"
        />
        <div class="addTodo" onclick="addTodo('${todoList.name}')">
         <div class="sign center">+</div>

@@ -69,3 +69,27 @@ const generateTodoList = function(res) {
     .join('\n');
   document.getElementById('window').innerHTML = todoListsAsHTML;
 };
+
+// Creares only one of its kind
+
+const todoGenerator = function(todo, listId, cb) {
+  const todoClass = todo.isCompleted ? 'completed' : '';
+  const checkHiddenOrNot = todo.isCompleted ? '' : 'hidden';
+  req('GET', '/components/todo.html', null, res => {
+    let rawHTML = res;
+    rawHTML = rawHTML.replace(/TODO_ID/g, todo.id);
+    rawHTML = rawHTML.replace(/TODOLIST_ID/g, listId);
+    rawHTML = rawHTML.replace(/HIDDEN_OR_NOT/g, checkHiddenOrNot);
+    rawHTML = rawHTML.replace(/TODO_TITLE/g, todo.title);
+    const finalHtml = rawHTML.replace(/COMPLETED_OR_NOT/g, todoClass);
+    cb(finalHtml);
+  });
+};
+
+const todoGenerator = function(todoList, cb) {
+  req('GET', '/components/todoList.html', null, res => {
+    let rawHTML = res;
+    const finalHtml = rawHTML.replace(/TODOLIST_ID/g, todoList.name);
+    cb(finalHtml);
+  });
+};

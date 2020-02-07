@@ -18,7 +18,7 @@ const createList = function() {
   newListInput.value = '';
 };
 
-const deleteList = function (listId) {
+const deleteList = function(listId) {
   req('DELETE', '/deleteList', `listName=${listId}`, res => {
     const list = document.getElementById(listId);
     list.remove();
@@ -36,9 +36,12 @@ const addTodo = function(listId) {
     `todoListId=${listId}&id=${TODOID}&&title=${todoContent}`,
     res => {
       TODOID++;
+      todoGenerator(JSON.parse(res), listId, html => {
+        const todos = document.getElementById(`todos-${listId}`);
+        todos.insertAdjacentHTML('beforebegin', html);
+      });
     }
   );
-  loadApp();
   newTodoInput.value = '';
 };
 

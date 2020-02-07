@@ -163,7 +163,7 @@ body {
   padding: 0px 10px;
   overflow-y: scroll;
   height: 78%;
-  margin: 0px 0 10px;
+  margin: 10px 0 10px;
 }
 
 .todo:first-child {
@@ -182,7 +182,7 @@ body {
   padding: 15px;
   background-color: rgba(0, 0, 0, 0.1);
   border-radius: 5px;
-  margin: 12px;
+  margin: 12px 0;
   position: relative;
 }
 
@@ -317,6 +317,7 @@ body {
 
 .inputBar {
   position: relative;
+  margin: 0 12px;
 }
 
 .inputBar > input {

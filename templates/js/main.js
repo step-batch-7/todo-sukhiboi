@@ -31,7 +31,6 @@ const todoListGenerator = function(todoListId, cb) {
   });
 };
 
-
 const loadApp = function() {
   req('GET', '/todos', null, res => {
     const todoApp = JSON.parse(res);
@@ -42,7 +41,7 @@ const loadApp = function() {
       todoList.todos.forEach(todo => {
         todoGenerator(todo, todoList.name, html => {
           const todos = document.getElementById(`todos-${todoList.name}`);
-          todos.insertAdjacentHTML('beforebegin', html);
+          todos.insertAdjacentHTML('beforeend', html);
         });
       });
     });

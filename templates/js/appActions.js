@@ -31,7 +31,7 @@ const addTodo = function(listId) {
       TODOID++;
       todoGenerator(JSON.parse(res), listId, html => {
         const todos = document.getElementById(`todos-${listId}`);
-        todos.insertAdjacentHTML('beforebegin', html);
+        todos.insertAdjacentHTML('beforeend', html);
       });
     }
   );

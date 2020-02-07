@@ -1,3 +1,6 @@
+const todoWindow = document.getElementById('window');
+const newListInput = document.getElementById('newListInput');
+
 const loadApp = function() {
   req('GET', '/todos', null, res => {
     generateTodoList(res);
@@ -6,10 +9,13 @@ const loadApp = function() {
 
 const createList = function() {
   if (event.key !== 'Enter') return;
-  const newListInput = document.getElementById('newListInput');
-  req('POST', '/createList', `listName=${newListInput.value}`, res => {});
-  newListInput.value = '';
-  loadApp();
+  let newListname = newListInput.value;
+  req('POST', '/createList', `listName=${newListname}`, res => {
+    todoListGenerator(newListname, html => {
+      todoWindow.insertAdjacentHTML('beforeend', html);
+    });
+    newListname = '';
+  });
 };
 
 const deleteList = function(listId) {

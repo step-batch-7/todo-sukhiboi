@@ -62,6 +62,8 @@ const toggleTodo = function(todoId, listId) {
 };
 
 const deleteTodo = function(todoId, listId) {
-  req('DELETE', '/deleteTodo', `todoListId=${listId}&id=${todoId}`, res => {});
-  loadApp();
+  req('DELETE', '/deleteTodo', `todoListId=${listId}&id=${todoId}`, res => {
+    const todo = document.getElementById(`${listId}-${todoId}`);
+    todo.remove();
+  });
 };

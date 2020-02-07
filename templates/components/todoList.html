@@ -1,0 +1,25 @@
+<div class="todoList">
+  <div class="header flex">
+    <div>
+      <span class="title">TODOLIST_ID</span>
+    </div>
+    <div class="deleteListBtn"><img src="./../images/delete.png" /></div>
+  </div>
+  <div class="todosSearch">
+    <input id="todosSearch-TODOLIST_ID" placeholder="Search todos..." />
+  </div>
+  <div class="todos" id="todos-TODOLIST_ID">
+    <div class="inputBar flex" id="addNewTodoBox-TODOLIST_ID">
+      <input
+        class="textbox"
+        id="newTodoInput-TODOLIST_ID"
+        placeholder="Title..."
+        autofocus
+        required
+      />
+      <div class="addTodo" onclick="addTodo('TODOLIST_ID')">
+        <div class="sign center">+</div>
+      </div>
+    </div>
+  </div>
+</div>

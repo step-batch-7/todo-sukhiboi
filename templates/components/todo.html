@@ -1,0 +1,13 @@
+<div class="todo flex COMPLETED_OR_NOT" id="TODOLIST_ID-TODO_ID">
+  <div class="checkBox">
+    <div class="box" onclick="toggleTodo('TODO_ID', 'TODOLIST_ID')"></div>
+    <div
+      class="check center HIDDEN_OR_NOT"
+      onclick="toggleTodo('${todo.id}', 'TODOLIST_ID')"
+    ></div>
+  </div>
+  <span class="content">TODO_TITLE</span>
+  <div class="bin" onclick="deleteTodo('${todo.id}', 'TODOLIST_ID')">
+    <img src="./../images/delete.png" />
+  </div>
+</div>

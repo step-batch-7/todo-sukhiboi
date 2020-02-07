@@ -1,7 +1,6 @@
 const loadApp = function() {
   req('GET', '/todos', null, res => {
     generateTodoList(res);
-    setDate();
   });
 };
 

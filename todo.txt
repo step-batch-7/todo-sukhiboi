@@ -91,12 +91,12 @@ Requirements
 - Add a mechanism to edit todo and todoList title
 
 Check if I can implement thiese today
-- Dont re-paint the whole body change things that need to be changed.
+- Dont re-paint the whole body change things that need to be changed. -- done
 - Make components of 
-    - todoList
+    - todoList -- done
         > What I can do is in frontend JS after retriving the todo Lists i will send a request to /component/todoList 
           and will get the HTML Template of todoList Now I can replce things int it.
-    - Todo
+    - Todo -- done
         > What I can do is in frontend JS after retriving the todos i will send a request to /component/todo 
           and will get the HTML Template of todo Now I can replce things int it.
 

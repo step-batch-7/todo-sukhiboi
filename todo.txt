@@ -10,14 +10,18 @@ set a /deleteTodo route to delte a todo --DONE
 
 MODEL:
 
-TodoList {
-    title: "Name of the list" //String,
-    todos : [
-        Todo {
-            id: 6535 //Number,
-            date: 2019-12-09 //Date in JSON format,
-            isCompleted: false, //Boolean
-            title: "Title of todo" //String
+TodoApp {
+    lists: [ // Array of lists
+        TodoList {
+            title: "Name of the list" //String,
+            todos : [
+                Todo {
+                    id: 6535 //Number,
+                    date: 2019-12-09 //Date in JSON format,
+                    isCompleted: false, //Boolean
+                    title: "Title of todo" //String
+                }
+            ]
         }
     ]
 }
@@ -72,8 +76,36 @@ Responsibilies -
 
 - create a random alphanumberic key generator
 - update the TodoList class to have a id, so that we can identify it. --done
-- set a /createList route to create a todoList 
-- create a html box which shows to add a todoList
-- set a /deleteList route to delete a todoList 
-- add a option menu to list to delete it
+- set a /createList route to create a todoList -- done
+- create a html box which shows to add a todoList --- done
+- set a /deleteList route to delete a todoList  --done
+- add a option menu to list to delete it -- done
 - update previous routes to take list id also --done
+
+------------ 7/FEB/2020
+
+Requirements
+- add a search bar to seach for TodoLists
+- add a search bar in todoList to find a todo
+- Upload figma designs to github too
+- Add a mechanism to edit todo and todoList title
+
+Check if I can implement thiese today
+- Dont re-paint the whole body change things that need to be changed.
+- Make components of 
+    - todoList
+        > What I can do is in frontend JS after retriving the todo Lists i will send a request to /component/todoList 
+          and will get the HTML Template of todoList Now I can replce things int it.
+    - Todo
+        > What I can do is in frontend JS after retriving the todos i will send a request to /component/todo 
+          and will get the HTML Template of todo Now I can replce things int it.
+
+UI/UX
+- remove the option box add a cross sign instead
+- remove task label
+- chose colors
+- add a landing page
+- add a login and sign up pages
+- redesign a add new List dialog box
+- Add confirmation when you wants to delete something
+- DESIGN THIS WHOLE IN FIGMA

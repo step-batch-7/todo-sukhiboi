@@ -1,11 +1,4 @@
-const todoWindow = document.getElementById('window');
 const newListInput = document.getElementById('newListInput');
-
-const loadApp = function() {
-  req('GET', '/todos', null, res => {
-    generateTodoList(res);
-  });
-};
 
 const createList = function() {
   if (event.key !== 'Enter') return;

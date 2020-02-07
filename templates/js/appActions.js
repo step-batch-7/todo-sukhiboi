@@ -43,7 +43,6 @@ const toggleTodo = function(todoId, listId) {
     const todo = document.getElementById(`${listId}-${todoId}`);
     const isCompleted = todo.className.includes('completed');
     const check = document.querySelector(`#${listId}-${todoId} .check`);
-    console.log(check);
     if (isCompleted) {
       todo.classList.remove('completed');
       check.classList.add('hidden');

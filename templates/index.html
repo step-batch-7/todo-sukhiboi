@@ -16,6 +16,13 @@
         onkeydown="createList()"
       />
     </div>
+    <div class="todosSearch">
+      <input
+        id="todosSearch-TODOLIST_ID"
+        placeholder="Search todos..."
+        oninput="filterTodos(this.value, 'TODOLIST_ID')"
+      />
+    </div>
     <div id="window" class="flex"></div>
   </body>
   <script src="./js/appActions.js"></script>

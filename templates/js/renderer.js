@@ -72,7 +72,7 @@ const generateTodoList = function(res) {
 
 // Creares only one of its kind
 
-const todoGenerator = function(todo, listId, cb) {
+const todoenerator = function(todo, listId, cb) {
   const todoClass = todo.isCompleted ? 'completed' : '';
   const checkHiddenOrNot = todo.isCompleted ? '' : 'hidden';
   req('GET', '/components/todo.html', null, res => {
@@ -86,7 +86,7 @@ const todoGenerator = function(todo, listId, cb) {
   });
 };
 
-const todoGenerator = function(todoList, cb) {
+const todoListGenerator = function(todoList, cb) {
   req('GET', '/components/todoList.html', null, res => {
     let rawHTML = res;
     const finalHtml = rawHTML.replace(/TODOLIST_ID/g, todoList.name);

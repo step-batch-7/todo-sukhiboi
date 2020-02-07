@@ -46,8 +46,19 @@ const addTodo = function(listId) {
 };
 
 const toggleTodo = function(todoId, listId) {
-  req('PATCH', '/toggleTodo', `todoListId=${listId}&id=${todoId}`, res => {});
-  loadApp();
+  req('PATCH', '/toggleTodo', `todoListId=${listId}&id=${todoId}`, res => {
+    const todo = document.getElementById(`${listId}-${todoId}`);
+    const isCompleted = todo.className.includes('completed');
+    const check = document.querySelector(`#${listId}-${todoId} .check`);
+    console.log(check);
+    if (isCompleted) {
+      todo.classList.remove('completed');
+      check.classList.add('hidden');
+    } else {
+      todo.classList.add('completed');
+      check.classList.remove('hidden');
+    }
+  });
 };
 
 const deleteTodo = function(todoId, listId) {

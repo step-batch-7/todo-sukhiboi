@@ -18,14 +18,18 @@ const deleteList = function(listId) {
   loadApp();
 };
 
+let TODOID = 0;
+
 const addTodo = function(listId) {
   const newTodoInput = document.getElementById(`newTodoInput-${listId}`);
   const todoContent = newTodoInput.value;
   req(
     'POST',
     '/addTodo',
-    `todoListId=${listId}&id=${generateTodoId()}&&title=${todoContent}`,
-    res => {}
+    `todoListId=${listId}&id=${TODOID}&&title=${todoContent}`,
+    res => {
+      TODOID++;
+    }
   );
   loadApp();
   newTodoInput.value = '';

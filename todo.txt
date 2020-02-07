@@ -85,8 +85,8 @@ Responsibilies -
 ------------ 7/FEB/2020
 
 Requirements
-- add a search bar to seach for TodoLists
-- add a search bar in todoList to find a todo
+- add a search bar to seach for TodoLists --done
+- add a search bar in todoList to find a todo --done
 - Upload figma designs to github too
 - Add a mechanism to edit todo and todoList title
 
@@ -101,8 +101,8 @@ Check if I can implement thiese today
           and will get the HTML Template of todo Now I can replce things int it.
 
 UI/UX
-- remove the option box add a cross sign instead
-- remove task label
+- remove the option box add a cross sign instead --done
+- remove task label --done
 - chose colors
 - add a landing page
 - add a login and sign up pages

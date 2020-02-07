@@ -1,9 +1,11 @@
-<div class="todoList">
+<div class="todoList" id="TODOLIST_ID">
   <div class="header flex">
     <div>
       <span class="title">TODOLIST_ID</span>
     </div>
-    <div class="deleteListBtn"><img src="./../images/delete.png" /></div>
+    <div class="deleteListBtn" onclick="deleteList('TODOLIST_ID')">
+      <img src="./../images/delete.png" />
+    </div>
   </div>
   <div class="todosSearch">
     <input id="todosSearch-TODOLIST_ID" placeholder="Search todos..." />

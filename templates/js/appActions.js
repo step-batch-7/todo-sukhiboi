@@ -14,13 +14,15 @@ const createList = function() {
     todoListGenerator(newListname, html => {
       todoWindow.insertAdjacentHTML('beforeend', html);
     });
-    newListname = '';
   });
+  newListInput.value = '';
 };
 
-const deleteList = function(listId) {
-  req('DELETE', '/deleteList', `listName=${listId}`, res => {});
-  loadApp();
+const deleteList = function (listId) {
+  req('DELETE', '/deleteList', `listName=${listId}`, res => {
+    const list = document.getElementById(listId);
+    list.remove();
+  });
 };
 
 let TODOID = 0;

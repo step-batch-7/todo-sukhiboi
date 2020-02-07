@@ -8,7 +8,7 @@ describe('GET /', () => {
       .set('Accept', 'text/html, text/css, application/script')
       .expect(200)
       .expect('Content-Type', 'text/html')
-      .expect(/todo/, done);
+      .expect(/newListInput/, done);
   });
 });
 
@@ -30,10 +30,10 @@ describe('GET /styles/styles.css', () => {
   });
 });
 
-describe('GET /js/todo.css', () => {
-  it('should response back with todo.js', done => {
+describe('GET /js/main.js', () => {
+  it('should response back with main.js', done => {
     request(app)
-      .get('/js/todo.js')
+      .get('/js/main.js')
       .set('Accept', 'application/script')
       .expect(200)
       .expect('Content-Type', 'application/script', done);
@@ -77,7 +77,7 @@ describe('POST /addTodo()', () => {
           .post('/addTodo')
           .send('todoListId=newList&id=89&title=NewTodo')
           .expect(200)
-          .expect(/OK/, done);
+          .expect('{"title":"NewTodo","isCompleted":false,"id":"89"}', done);
       });
   });
 });

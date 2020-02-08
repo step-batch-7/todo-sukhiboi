@@ -83,4 +83,22 @@ describe('TodoStore()', () => {
       );
     });
   });
+
+  describe('toggleTodo()', () => {
+    it('should toggle the given todo to the right list', () => {
+      const store = new TodoStore();
+      const list = new TodoList('myNewList2');
+      store.createList(list);
+      store.addTodo({
+        todoListId: 'myNewList2',
+        id: '90',
+        title: 'some title'
+      });
+      store.toggleTodo({ todoListId: 'myNewList2', id: '90' });
+      assert.deepStrictEqual(
+        store.toJSON(),
+        '[{"name":"myNewList2","todos":[{"title":"some title","isCompleted":true,"id":"90"}]}]'
+      );
+    });
+  });
 });

@@ -1,4 +1,8 @@
+const sinon = require('sinon');
 const assert = require('assert');
+const fs = require('fs');
+const { TodoList } = require('./../lib/todoList');
+const { Todo } = require('./../lib/todo');
 const { TodoStore } = require('../lib/todoStore');
 
 describe('TodoStore()', () => {
@@ -114,6 +118,24 @@ describe('TodoStore()', () => {
         todoStore.toJSON(),
         '[{"name":"something","todos":[]}]'
       );
+    });
+  });
+
+  describe('load()', () => {
+    const store = new TodoStore(`fakefile`);
+    it('should parse the previous todo data', () => {
+      const samplePreviousData =
+        '[{"name":"sdfdf","todos":[{"title":"sdfdf","isCompleted":false,"id":"0"}]}]';
+      const fakeRead = sinon.fake.returns(samplePreviousData);
+      sinon.replace(fs, 'readFileSync', fakeRead);
+      store.restore();
+      fakeRead.calledOnceWith(`fakefile`)
+      store.lists.forEach(list => {
+        assert.ok(list instanceof TodoList);
+        list.todos.forEach(todo => {
+          assert.ok(todo instanceof Todo);
+        });
+      });
     });
   });
 });

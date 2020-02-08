@@ -3,3 +3,5 @@ node_modules
 DATASTORE.json
 .nyc_output
 database.json
+fakefile
+test/fakeDatabase.json

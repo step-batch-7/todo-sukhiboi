@@ -20,11 +20,20 @@
       <input
         id="todosSearch-TODOLIST_ID"
         placeholder="Search todos..."
-        oninput="filterTodos(this.value, 'TODOLIST_ID')"
+        oninput="filterTodos(this.value)"
+      />
+    </div>
+    <div class="todosSearch">
+      <input
+        id="todoListSearch-TODOLIST_ID"
+        placeholder="Search todoList..."
+        oninput="filterTodoList(this.value)"
       />
     </div>
     <div id="window" class="flex"></div>
   </body>
+  <script src="./js/todoFilter.js"></script>
+  <script src="./js/todoListFilter.js"></script>
   <script src="./js/appActions.js"></script>
   <script src="./js/main.js"></script>
 </html>

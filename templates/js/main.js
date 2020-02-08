@@ -33,8 +33,8 @@ const todoListGenerator = function(todoListId, cb) {
 
 const loadApp = function() {
   req('GET', '/todos', null, res => {
-    const todoApp = JSON.parse(res);
-    todoApp.forEach(todoList => {
+    const todoStore = JSON.parse(res);
+    todoStore.forEach(todoList => {
       todoListGenerator(todoList.name, html => {
         todoWindow.insertAdjacentHTML('beforeend', html);
       });

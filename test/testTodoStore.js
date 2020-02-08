@@ -1,20 +1,20 @@
 const assert = require('assert');
-const { Todo } = require('./../lib/todo.js');
-const { TodoList } = require('./../lib/todoList');
-const { TodoApp } = require('./../lib/todoApp');
+const { Todo } = require('../lib/todo.js');
+const { TodoList } = require('../lib/todoList');
+const { TodoStore } = require('../lib/todoStore');
 
-describe('TodoApp()', () => {
-  let todoApp;
+describe('TodoStore()', () => {
+  let todoStore;
 
   beforeEach(function() {
-    todoApp = new TodoApp();
+    todoStore = new TodoStore();
   });
 
   describe('createList()', () => {
     it('should create a new TodoList in the App', () => {
-      todoApp.createList(new TodoList('myList'));
+      todoStore.createList(new TodoList('myList'));
       assert.deepStrictEqual(
-        todoApp.toJSON(),
+        todoStore.toJSON(),
         '[{"name":"myList","todos":[]}]'
       );
     });
@@ -22,11 +22,11 @@ describe('TodoApp()', () => {
 
   describe('findList()', () => {
     it('should find a list with its name when it have some todos', () => {
-      todoApp.createList(new TodoList('myNewList'));
+      todoStore.createList(new TodoList('myNewList'));
       const list = new TodoList('myNewList2');
       list.addTodo(new Todo(23, 'something'));
-      todoApp.createList(list);
-      const foundedTodoList = todoApp.findList('myNewList2');
+      todoStore.createList(list);
+      const foundedTodoList = todoStore.findList('myNewList2');
       assert.deepStrictEqual(foundedTodoList.toJSON(), {
         name: 'myNewList2',
         todos: [
@@ -44,9 +44,9 @@ describe('TodoApp()', () => {
     it('should return the HTML representaion of the lists', () => {
       const list2 = new TodoList('mynewList');
       list2.addTodo(new Todo(233, 'something big'));
-      todoApp.createList(list2);
+      todoStore.createList(list2);
       assert.deepStrictEqual(
-        todoApp.toJSON(),
+        todoStore.toJSON(),
         '[{"name":"mynewList","todos":[{"title":"something big","isCompleted":false,"id":233}]}]'
       );
     });
@@ -58,11 +58,11 @@ describe('TodoApp()', () => {
       list.addTodo(new Todo(23, 'something'));
       const list2 = new TodoList('mynewList');
       list2.addTodo(new Todo(233, 'something big'));
-      todoApp.createList(list2);
-      todoApp.createList(list);
-      todoApp.deleteList('myNewList2');
+      todoStore.createList(list2);
+      todoStore.createList(list);
+      todoStore.deleteList('myNewList2');
       assert.deepStrictEqual(
-        todoApp.toJSON(),
+        todoStore.toJSON(),
         '[{"name":"mynewList","todos":[{"title":"something big","isCompleted":false,"id":233}]}]'
       );
     });

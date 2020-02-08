@@ -130,8 +130,7 @@ describe('GET /todos', () => {
   it('should response back with all the todos', done => {
     request(app)
       .get('/todos')
-      .expect(200)
-      .expect('Content-Length', '203', done);
+      .expect(200, done);
   });
 });
 

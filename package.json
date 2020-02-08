@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "nyc mocha"
+    "test": "export DATA_STORE_PATH=$(pwd)/test/fakeDatabase.json;nyc mocha",
+    "start": "export DATA_STORE_PATH=$(pwd)/database.json;node server.js"
   },
   "repository": {
     "type": "git",

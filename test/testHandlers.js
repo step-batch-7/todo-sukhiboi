@@ -136,7 +136,7 @@ describe('GET /todos', () => {
 });
 
 describe('PATCH /updateTodoTitle', () => {
-  it('should response back with UPDATED', (done) => {
+  it('should response back with UPDATED', done => {
     request(app)
       .post('/createList')
       .send('listName=newList')
@@ -153,6 +153,22 @@ describe('PATCH /updateTodoTitle', () => {
               .expect(200)
               .expect(/UPDATED/, done);
           });
+      });
+  });
+});
+
+describe('PATCH /updateTodoListname', () => {
+  it('should response back with UPDATED', done => {
+    request(app)
+      .post('/createList')
+      .send('listName=newList')
+      .expect(200)
+      .end(() => {
+        request(app)
+          .patch('/updateTodoListname')
+          .send('todoListId=newList&newName=some+greate')
+          .expect(200)
+          .expect(/UPDATED/, done);
       });
   });
 });

@@ -88,7 +88,7 @@ Requirements
 - add a search bar to seach for TodoLists --done
 - add a search bar in todoList to find a todo --done
 - Upload figma designs to github too
-- Add a mechanism to edit todo and todoList title
+- Add a mechanism to edit todo and todoList title --done
 
 Check if I can implement thiese today
 - Dont re-paint the whole body change things that need to be changed. -- done

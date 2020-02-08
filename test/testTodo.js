@@ -28,4 +28,12 @@ describe('Todo()', () => {
       assert.ok(todo.isCompleted);
     });
   });
+
+  describe('updateTitle()', () => {
+    it('should update the title of todo', () => {
+      const todo = new Todo(ID, 'firstTodo', date);
+      todo.updateTitle('new One title');
+      assert.strictEqual(todo.title, 'new One title');
+    });
+  });
 });

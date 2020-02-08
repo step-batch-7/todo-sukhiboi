@@ -67,4 +67,20 @@ describe('TodoStore()', () => {
       );
     });
   });
+
+  describe('addTodo()', () => {
+    it('should add the given todo to the right list', () => {
+      const list = new TodoList('myNewList2');
+      todoStore.createList(list);
+      todoStore.addTodo({
+        todoListId: 'myNewList2',
+        id: '90',
+        title: 'some title'
+      });
+      assert.deepStrictEqual(
+        todoStore.toJSON(),
+        '[{"name":"myNewList2","todos":[{"title":"some title","isCompleted":false,"id":"90"}]}]'
+      );
+    });
+  });
 });

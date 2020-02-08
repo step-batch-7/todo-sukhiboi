@@ -119,7 +119,7 @@ describe('TodoStore()', () => {
   });
 
   describe('updateTodoTitle()', () => {
-    it('should updare the title of given todo to the right list', () => {
+    it('should update the title of given todo to the right list', () => {
       const list = new TodoList('myNewList2');
       todoStore.createList(list);
       todoStore.addTodo({
@@ -135,6 +135,21 @@ describe('TodoStore()', () => {
       assert.deepStrictEqual(
         todoStore.toJSON(),
         '[{"name":"myNewList2","todos":[{"title":"great","isCompleted":false,"id":"90"}]}]'
+      );
+    });
+  });
+
+  describe('updateTodoListname()', () => {
+    it('should update the name of given list', () => {
+      const list = new TodoList('myNewList2');
+      todoStore.createList(list);
+      todoStore.updateTodoListname({
+        todoListId: 'myNewList2',
+        newName: 'something'
+      });
+      assert.deepStrictEqual(
+        todoStore.toJSON(),
+        '[{"name":"something","todos":[]}]'
       );
     });
   });

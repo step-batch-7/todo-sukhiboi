@@ -1,10 +1,5 @@
 const request = require('supertest');
-const { writeFileSync } = require('fs');
 const { app } = require('./../lib/app');
-
-after(function() {
-  writeFileSync('./../databse.json', '[]', () => {});
-});
 
 describe('GET /', () => {
   it('should response back with index page', done => {

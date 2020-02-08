@@ -57,6 +57,14 @@ describe('TodoList()', () => {
     });
   });
 
+  describe('#updateName()', () => {
+    it('should update the name of the list', () => {
+      const list = new TodoList('new List');
+      list.updateName('second list');
+      assert.deepStrictEqual(list.name, 'second list');
+    });
+  });
+
   describe('#deleteTodo()', () => {
     it('should delete todo in the list with the given id', () => {
       const todo = new Todo(ID, 'firstTodo', date);

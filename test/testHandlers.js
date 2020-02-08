@@ -75,7 +75,7 @@ describe('POST /addTodo', () => {
   it('should response back with OK', done => {
     request(app)
       .post('/createList')
-      .send('listName=newList')
+      .send('listname=newList')
       .expect(200)
       .end(() => {
         request(app)
@@ -91,7 +91,7 @@ describe('PATCH /toggleTodo', () => {
   it('should response back with TOGGLED', done => {
     request(app)
       .post('/createList')
-      .send('listName=newList')
+      .send('listname=newList')
       .expect(200)
       .end(() => {
         request(app)
@@ -113,7 +113,7 @@ describe('DELETE /deleteTodo', () => {
   it('should response back with DELETED', done => {
     request(app)
       .post('/createList')
-      .send('listName=newList')
+      .send('listname=newList')
       .expect(200)
       .end(() => {
         request(app)
@@ -136,7 +136,7 @@ describe('GET /todos', () => {
     request(app)
       .get('/todos')
       .expect(200)
-      .expect('Content-Length', '250', done);
+      .expect('Content-Length', '203', done);
   });
 });
 
@@ -144,7 +144,7 @@ describe('PATCH /updateTodoTitle', () => {
   it('should response back with UPDATED', done => {
     request(app)
       .post('/createList')
-      .send('listName=newList')
+      .send('listname=newList')
       .expect(200)
       .end(() => {
         request(app)
@@ -166,7 +166,7 @@ describe('PATCH /updateTodoListname', () => {
   it('should response back with UPDATED', done => {
     request(app)
       .post('/createList')
-      .send('listName=newList')
+      .send('listname=newList')
       .expect(200)
       .end(() => {
         request(app)

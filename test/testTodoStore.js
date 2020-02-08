@@ -12,7 +12,7 @@ describe('TodoStore()', () => {
 
   describe('createList()', () => {
     it('should create a new TodoList in the App', () => {
-      todoStore.createList(new TodoList('myList'));
+      todoStore.createList({ listname: 'myList' });
       assert.deepStrictEqual(
         todoStore.toJSON(),
         '[{"name":"myList","todos":[]}]'
@@ -22,13 +22,11 @@ describe('TodoStore()', () => {
 
   describe('findList()', () => {
     it('should find a list with its name when it have some todos', () => {
-      todoStore.createList(new TodoList('myNewList'));
-      const list = new TodoList('myNewList2');
-      list.addTodo(new Todo(23, 'something'));
-      todoStore.createList(list);
-      const foundedTodoList = todoStore.findList('myNewList2');
+      todoStore.createList({ listname: 'myList' });
+      todoStore.addTodo({ todoListId: 'myList', id: 23, title: 'something' });
+      const foundedTodoList = todoStore.findList('myList');
       assert.deepStrictEqual(foundedTodoList.toJSON(), {
-        name: 'myNewList2',
+        name: 'myList',
         todos: [
           {
             id: 23,
@@ -41,37 +39,39 @@ describe('TodoStore()', () => {
   });
 
   describe('toJSON()', () => {
-    it('should return the HTML representaion of the lists', () => {
-      const list2 = new TodoList('mynewList');
-      list2.addTodo(new Todo(233, 'something big'));
-      todoStore.createList(list2);
+    it('should return the JSON representaion of the lists', () => {
+      todoStore.createList({ listname: 'newList' });
+      todoStore.addTodo({
+        todoListId: 'newList',
+        title: 'something big',
+        id: 233
+      });
       assert.deepStrictEqual(
         todoStore.toJSON(),
-        '[{"name":"mynewList","todos":[{"title":"something big","isCompleted":false,"id":233}]}]'
+        '[{"name":"newList","todos":[{"title":"something big","isCompleted":false,"id":233}]}]'
       );
     });
   });
 
   describe('deleteList()', () => {
-    it('should return the HTML representaion of the lists', () => {
-      const list = new TodoList('myNewList2');
-      list.addTodo(new Todo(23, 'something'));
-      const list2 = new TodoList('mynewList');
-      list2.addTodo(new Todo(233, 'something big'));
-      todoStore.createList(list2);
-      todoStore.createList(list);
-      todoStore.deleteList('myNewList2');
+    it('should delete the list', () => {
+      todoStore.createList({
+        listname: 'myNewList2'
+      });
+      todoStore.createList({
+        listname: 'mynewList'
+      });
+      todoStore.deleteList({ listname: 'myNewList2' });
       assert.deepStrictEqual(
         todoStore.toJSON(),
-        '[{"name":"mynewList","todos":[{"title":"something big","isCompleted":false,"id":233}]}]'
+        '[{"name":"mynewList","todos":[]}]'
       );
     });
   });
 
   describe('addTodo()', () => {
     it('should add the given todo to the right list', () => {
-      const list = new TodoList('myNewList2');
-      todoStore.createList(list);
+      todoStore.createList({ listname: 'myNewList2' });
       todoStore.addTodo({
         todoListId: 'myNewList2',
         id: '90',
@@ -86,8 +86,7 @@ describe('TodoStore()', () => {
 
   describe('toggleTodo()', () => {
     it('should toggle the given todo to the right list', () => {
-      const list = new TodoList('myNewList2');
-      todoStore.createList(list);
+      todoStore.createList({ listname: 'myNewList2' });
       todoStore.addTodo({
         todoListId: 'myNewList2',
         id: '90',
@@ -102,9 +101,8 @@ describe('TodoStore()', () => {
   });
 
   describe('deleteTodo()', () => {
-    it('should toggle the given todo to the right list', () => {
-      const list = new TodoList('myNewList2');
-      todoStore.createList(list);
+    it('should delete the given todo to the right list', () => {
+      todoStore.createList({ listname: 'myNewList2' });
       todoStore.addTodo({
         todoListId: 'myNewList2',
         id: '90',
@@ -120,8 +118,7 @@ describe('TodoStore()', () => {
 
   describe('updateTodoTitle()', () => {
     it('should update the title of given todo to the right list', () => {
-      const list = new TodoList('myNewList2');
-      todoStore.createList(list);
+      todoStore.createList({ listname: 'myNewList2' });
       todoStore.addTodo({
         todoListId: 'myNewList2',
         id: '90',
@@ -141,8 +138,7 @@ describe('TodoStore()', () => {
 
   describe('updateTodoListname()', () => {
     it('should update the name of given list', () => {
-      const list = new TodoList('myNewList2');
-      todoStore.createList(list);
+      todoStore.createList({ listname: 'myNewList2' });
       todoStore.updateTodoListname({
         todoListId: 'myNewList2',
         newName: 'something'

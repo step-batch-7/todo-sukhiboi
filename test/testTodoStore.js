@@ -86,18 +86,34 @@ describe('TodoStore()', () => {
 
   describe('toggleTodo()', () => {
     it('should toggle the given todo to the right list', () => {
-      const store = new TodoStore();
       const list = new TodoList('myNewList2');
-      store.createList(list);
-      store.addTodo({
+      todoStore.createList(list);
+      todoStore.addTodo({
         todoListId: 'myNewList2',
         id: '90',
         title: 'some title'
       });
-      store.toggleTodo({ todoListId: 'myNewList2', id: '90' });
+      todoStore.toggleTodo({ todoListId: 'myNewList2', id: '90' });
       assert.deepStrictEqual(
-        store.toJSON(),
+        todoStore.toJSON(),
         '[{"name":"myNewList2","todos":[{"title":"some title","isCompleted":true,"id":"90"}]}]'
+      );
+    });
+  });
+
+  describe('deleteTodo()', () => {
+    it('should toggle the given todo to the right list', () => {
+      const list = new TodoList('myNewList2');
+      todoStore.createList(list);
+      todoStore.addTodo({
+        todoListId: 'myNewList2',
+        id: '90',
+        title: 'some title'
+      });
+      todoStore.deleteTodo({ todoListId: 'myNewList2', id: '90' });
+      assert.deepStrictEqual(
+        todoStore.toJSON(),
+        '[{"name":"myNewList2","todos":[]}]'
       );
     });
   });

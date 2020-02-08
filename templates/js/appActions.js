@@ -18,6 +18,19 @@ const deleteList = function(listId) {
   });
 };
 
+const updateTodoListname = function(listId, newName) {
+  req(
+    'PATCH',
+    '/updateTodoListname',
+    `todoListId=${listId}&newName=${newName}`,
+    res => {
+      const list = document.getElementById(listId);
+      list.id = newName;
+      list.innerHTML = list.innerHTML.replace(new RegExp(listId, 'g'), newName);
+    }
+  );
+};
+
 let TODOID = 0;
 
 const addTodo = function(listId) {

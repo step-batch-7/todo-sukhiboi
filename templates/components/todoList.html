@@ -1,7 +1,11 @@
 <div class="todoList" id="TODOLIST_ID">
   <div class="header flex">
     <div>
-      <input class="title" value="TODOLIST_ID" />
+      <input
+        class="title"
+        value="TODOLIST_ID"
+        onblur="updateTodoListname('TODOLIST_ID', this.value)"
+      />
     </div>
     <div class="deleteListBtn" onclick="deleteList('TODOLIST_ID')">
       <img src="./../images/delete.png" />

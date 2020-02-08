@@ -93,7 +93,12 @@ body {
   font-size: 22px;
   display: block;
   font-weight: 600;
+  margin: 0;
   margin-bottom: 5px;
+  background: transparent;
+  border: none;
+  padding: 0;
+  outline: none;
 }
 
 .deleteListBtn {

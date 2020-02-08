@@ -117,4 +117,25 @@ describe('TodoStore()', () => {
       );
     });
   });
+
+  describe('updateTodoTitle()', () => {
+    it('should updare the title of given todo to the right list', () => {
+      const list = new TodoList('myNewList2');
+      todoStore.createList(list);
+      todoStore.addTodo({
+        todoListId: 'myNewList2',
+        id: '90',
+        title: 'some title'
+      });
+      todoStore.updateTodoTitle({
+        todoListId: 'myNewList2',
+        id: '90',
+        newTitle: 'great'
+      });
+      assert.deepStrictEqual(
+        todoStore.toJSON(),
+        '[{"name":"myNewList2","todos":[{"title":"great","isCompleted":false,"id":"90"}]}]'
+      );
+    });
+  });
 });

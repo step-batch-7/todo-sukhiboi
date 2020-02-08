@@ -3,7 +3,7 @@ const newListInput = document.getElementById('newListInput');
 const createList = function() {
   if (event.key !== 'Enter') return;
   let newListname = newListInput.value;
-  req('POST', '/createList', `listName=${newListname}`, res => {
+  req('POST', '/createList', `listname=${newListname}`, res => {
     todoListGenerator(newListname, html => {
       todoWindow.insertAdjacentHTML('beforeend', html);
     });
@@ -12,7 +12,7 @@ const createList = function() {
 };
 
 const deleteList = function(listId) {
-  req('DELETE', '/deleteList', `listName=${listId}`, res => {
+  req('DELETE', '/deleteList', `listname=${listId}`, res => {
     const list = document.getElementById(listId);
     list.remove();
   });

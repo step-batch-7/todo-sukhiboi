@@ -40,7 +40,7 @@ describe('GET /js/main.js', () => {
   });
 });
 
-describe('DELETE /deleteList()', () => {
+describe('DELETE /deleteList', () => {
   it('should response back with DELETED', done => {
     request(app)
       .post('/createList')
@@ -50,7 +50,7 @@ describe('DELETE /deleteList()', () => {
   });
 });
 
-describe('DELETE /deleteList()', () => {
+describe('DELETE /deleteList', () => {
   it('should response back with DELETED', done => {
     request(app)
       .post('/createList')
@@ -66,7 +66,7 @@ describe('DELETE /deleteList()', () => {
   });
 });
 
-describe('POST /addTodo()', () => {
+describe('POST /addTodo', () => {
   it('should response back with OK', done => {
     request(app)
       .post('/createList')
@@ -82,7 +82,7 @@ describe('POST /addTodo()', () => {
   });
 });
 
-describe('PATCH /toggleTodo()', () => {
+describe('PATCH /toggleTodo', () => {
   it('should response back with TOGGLED', done => {
     request(app)
       .post('/createList')
@@ -104,7 +104,7 @@ describe('PATCH /toggleTodo()', () => {
   });
 });
 
-describe('DELETE /deleteTodo()', () => {
+describe('DELETE /deleteTodo', () => {
   it('should response back with DELETED', done => {
     request(app)
       .post('/createList')
@@ -126,11 +126,33 @@ describe('DELETE /deleteTodo()', () => {
   });
 });
 
-describe('GET /todos()', () => {
+describe('GET /todos', () => {
   it('should response back with all the todos', done => {
     request(app)
       .get('/todos')
       .expect(200)
       .expect('Content-Length', '250', done);
+  });
+});
+
+describe('PATCH /updateTodoTitle', () => {
+  it('should response back with UPDATED', (done) => {
+    request(app)
+      .post('/createList')
+      .send('listName=newList')
+      .expect(200)
+      .end(() => {
+        request(app)
+          .post('/addTodo')
+          .send('todoListId=newList&id=89&title=NewTodo')
+          .expect(200)
+          .end(() => {
+            request(app)
+              .patch('/updateTodoTitle')
+              .send('todoListId=newList&id=89&newTitle=some+greate')
+              .expect(200)
+              .expect(/UPDATED/, done);
+          });
+      });
   });
 });

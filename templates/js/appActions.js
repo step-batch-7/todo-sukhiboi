@@ -60,3 +60,15 @@ const deleteTodo = function(todoId, listId) {
   });
 };
 
+const updateTodoTitle = function(todoId, listId, newTitle) {
+  req(
+    'PATCH',
+    '/updateTodoTitle',
+    `todoListId=${listId}&id=${todoId}&newTitle=${newTitle}`,
+    res => {
+      const todo = document.getElementById(`${listId}-${todoId}`);
+      const todoTitle = todo.querySelector('input');
+      todoTitle.value = newTitle;
+    }
+  );
+};

@@ -8,7 +8,7 @@ const filterTodoList = function(searchString) {
   hideAllTodoLists();
   const todoLists = Array.from(document.querySelectorAll('.todoList'));
   const filteredLists = todoLists.filter(list => {
-    const listname = list.querySelector('.title').innerText;
+    const listname = list.querySelector('.title').value;
     return listname.match(searchRegex);
   });
   filteredLists.forEach(list => list.classList.remove('hidden'));

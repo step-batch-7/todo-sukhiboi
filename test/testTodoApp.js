@@ -5,11 +5,9 @@ const { TodoApp } = require('./../lib/todoApp');
 
 describe('TodoApp()', () => {
   let todoApp;
-  let date;
 
   beforeEach(function() {
     todoApp = new TodoApp();
-    date = new Date();
   });
 
   describe('createList()', () => {
@@ -26,7 +24,7 @@ describe('TodoApp()', () => {
     it('should find a list with its name when it have some todos', () => {
       todoApp.createList(new TodoList('myNewList'));
       const list = new TodoList('myNewList2');
-      list.addTodo(new Todo(23, 'something', date));
+      list.addTodo(new Todo(23, 'something'));
       todoApp.createList(list);
       const foundedTodoList = todoApp.findList('myNewList2');
       assert.deepStrictEqual(foundedTodoList.toJSON(), {
@@ -45,7 +43,7 @@ describe('TodoApp()', () => {
   describe('toJSON()', () => {
     it('should return the HTML representaion of the lists', () => {
       const list2 = new TodoList('mynewList');
-      list2.addTodo(new Todo(233, 'something big', date));
+      list2.addTodo(new Todo(233, 'something big'));
       todoApp.createList(list2);
       assert.deepStrictEqual(
         todoApp.toJSON(),
@@ -57,9 +55,9 @@ describe('TodoApp()', () => {
   describe('deleteList()', () => {
     it('should return the HTML representaion of the lists', () => {
       const list = new TodoList('myNewList2');
-      list.addTodo(new Todo(23, 'something', date));
+      list.addTodo(new Todo(23, 'something'));
       const list2 = new TodoList('mynewList');
-      list2.addTodo(new Todo(233, 'something big', date));
+      list2.addTodo(new Todo(233, 'something big'));
       todoApp.createList(list2);
       todoApp.createList(list);
       todoApp.deleteList('myNewList2');

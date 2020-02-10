@@ -1,7 +1,7 @@
-const newListInput = document.getElementById('newListInput');
 
 const createList = function() {
   if (event.key !== 'Enter') return;
+  const newListInput = document.getElementById('newListInput');
   let newListname = newListInput.value;
   req('POST', '/createList', `listname=${newListname}`, res => {
     todoListGenerator(newListname, html => {

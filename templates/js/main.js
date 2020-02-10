@@ -41,6 +41,7 @@ const loadApp = function() {
       todoList.todos.forEach(todo => {
         todoGenerator(todo, todoList.name, html => {
           const todos = document.getElementById(`todos-${todoList.name}`);
+          TODOID++;
           todos.insertAdjacentHTML('beforeend', html);
         });
       });

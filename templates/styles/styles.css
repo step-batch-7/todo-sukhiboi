@@ -18,12 +18,16 @@ body {
   display: none;
 }
 
+#window {
+  flex-wrap: wrap;
+}
+
 /* Todo List */
 
 .todoList {
   background: rgba(196, 196, 196, 0.1);
   border-radius: 10px;
-  width: fit-content;
+  width: 18%;
   padding: 10px;
   margin: 4px;
   height: fit-content;

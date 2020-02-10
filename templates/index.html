@@ -10,12 +10,13 @@
   <body>
     <div class="main-header">
       <input
-        placeholder="List Name..."
+        placeholder="Create new list..."
         autocomplete="off"
         id="newListInput"
         onkeydown="createList()"
       />
     </div>
+    <div class="searchs">
     <div class="todosSearch">
       <input
         id="todosSearch-TODOLIST_ID"
@@ -30,6 +31,7 @@
         oninput="filterTodoList(this.value)"
       />
     </div>
+  </div>
     <div id="window" class="flex"></div>
   </body>
   <script src="./js/todoFilter.js"></script>

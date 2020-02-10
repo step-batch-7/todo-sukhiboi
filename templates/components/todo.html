@@ -11,7 +11,9 @@
     value="TODO_TITLE"
     onblur="updateTodoTitle('TODO_ID', 'TODOLIST_ID', this.value)"
   />
-  <div class="bin" onclick="deleteTodo('TODO_ID', 'TODOLIST_ID')">
-    <img src="./../images/delete.png" />
-  </div>
+  <img
+    src="./../images/cross.svg"
+    class="bin"
+    onclick="deleteTodo('TODO_ID', 'TODOLIST_ID')"
+  />
 </div>

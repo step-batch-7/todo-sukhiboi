@@ -8,7 +8,7 @@
       />
     </div>
     <div class="deleteListBtn" onclick="deleteList('TODOLIST_ID')">
-      <img src="./../images/delete.png" />
+      <img src="./../images/cross.svg" />
     </div>
   </div>
   <div class="todos" id="todos-TODOLIST_ID"></div>
@@ -20,8 +20,10 @@
       autofocus
       required
     />
-    <div class="addTodo" onclick="addTodo('TODOLIST_ID')">
-      <div class="sign center">+</div>
-    </div>
+    <img
+      class="addTodo"
+      src="./../images/add.svg"
+      onclick="addTodo('TODOLIST_ID')"
+    />
   </div>
 </div>

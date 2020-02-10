@@ -8,30 +8,42 @@
     <title>Todo</title>
   </head>
   <body>
-    <div class="main-header">
-      <input
-        placeholder="Create new list..."
-        autocomplete="off"
-        id="newListInput"
-        onkeydown="createList()"
-      />
+    <div class="appheader flex">
+      <div class="appName">Todo</div>
+      <div class="right-sided-things">
+        <div class="seachBox">
+          <input
+            class="searchBar"
+            placeholder="Create List"
+            id="newListInput"
+            onkeydown="createList()"
+            autocomplete="off"
+          />
+          <img src="./images/add.svg" class="search-icon" />
+        </div>
+        <div class="seachBox">
+          <input
+            class="searchBar"
+            placeholder="Search Todo List..."
+            id="todoListSearch-TODOLIST_ID"
+            oninput="filterTodoList(this.value)"
+            autocomplete="off"
+          />
+          <img src="./images/search.svg" class="search-icon" />
+        </div>
+        <div class="seachBox">
+          <input
+            class="searchBar"
+            placeholder="Search Todos..."
+            id="todosSearch-TODOLIST_ID"
+            oninput="filterTodos(this.value)"
+            autocomplete="off"
+          />
+          <img src="./images/search.svg" class="search-icon" />
+        </div>
+        <div class="username">sukhoboi</div>
+      </div>
     </div>
-    <div class="searchs">
-    <div class="todosSearch">
-      <input
-        id="todosSearch-TODOLIST_ID"
-        placeholder="Search todos..."
-        oninput="filterTodos(this.value)"
-      />
-    </div>
-    <div class="todosSearch">
-      <input
-        id="todoListSearch-TODOLIST_ID"
-        placeholder="Search todoList..."
-        oninput="filterTodoList(this.value)"
-      />
-    </div>
-  </div>
     <div id="window" class="flex"></div>
   </body>
   <script src="./js/todoFilter.js"></script>

@@ -103,7 +103,7 @@ Check if I can implement thiese today
 UI/UX
 - remove the option box add a cross sign instead --done
 - remove task label --done
-- chose colors
+- chose colors -- done
 - add a landing page
 - add a login and sign up pages
 - redesign a add new List dialog box

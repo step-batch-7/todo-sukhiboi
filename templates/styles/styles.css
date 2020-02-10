@@ -1,6 +1,8 @@
 body {
   background-color: #2e3532;
   font-family: Helvetica;
+  margin: 0;
+  padding: 0;
 }
 
 .flex {
@@ -123,6 +125,42 @@ body {
 
 .completed {
   text-decoration: line-through;
+}
+
+/* alert */
+
+.filter {
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.alert {
+  background-color: rgba(196, 196, 196, 1);
+  text-align: center;
+  border-radius: 10px;
+  padding: 2rem 6rem;
+}
+
+.alert > span {
+  font-weight: 900;
+  font-size: 1.6rem;
+}
+
+.alert > input {
+  font-weight: 600;
+  font-size: 1rem;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #000;
+  padding-bottom: 4px;
+  text-align: center;
+  outline: none;
+  margin: 1rem 0;
+}
+
+.alert > div {
+  margin: 0 auto;
 }
 
 /* index.html */
